@@ -223,6 +223,27 @@
     font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:0.03em;
   }
   .code-specs span{color:#cabbb2;display:block;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px;}
+  .code-source{
+    margin-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:0.03em;color:#cabbb2;
+  }
+  .code-source a{color:var(--gold);border-bottom:1px solid transparent;}
+  .code-source a:hover{border-color:var(--gold);}
+
+  /* ---------- Lineage ---------- */
+  .lineage-grid{display:grid;grid-template-columns:1fr;gap:40px;margin-top:44px;align-items:start;}
+  @media(min-width:840px){ .lineage-grid{grid-template-columns:1fr 1fr;gap:80px;} }
+  .lineage-copy{font-size:15.5px;line-height:1.8;color:#cabbb2;}
+  .lineage-copy p + p{margin-top:16px;}
+  .lineage-flow{
+    display:flex;flex-direction:column;gap:0;border:1px solid var(--chocolate-line);
+  }
+  .lineage-step{padding:24px 26px;border-bottom:1px solid var(--chocolate-line);}
+  .lineage-step:last-child{border-bottom:none;}
+  .lineage-step .step-label{
+    font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);
+  }
+  .lineage-step .step-name{font-family:var(--serif);font-size:22px;margin-top:8px;}
+  .lineage-step .step-desc{font-size:13.5px;color:#cabbb2;margin-top:8px;line-height:1.6;}
 
   /* ---------- Access ---------- */
   .access-grid{display:grid;grid-template-columns:1fr;gap:48px;margin-top:50px;}
@@ -408,6 +429,7 @@
           <div><span>Sett</span>108 × 76</div>
           <div><span>Drape</span>Standing</div>
         </div>
+        <div class="code-source">Sourced from ENZO Bluebird — Summer (BB-04, 20% Viscose / 80% Polyester) — <a href="https://enzolhr.com/catalog.html" target="_blank" rel="noopener noreferrer">view mill catalogue</a></div>
       </div>
       <div class="code-card">
         <div class="code-id">RQ-S2</div>
@@ -419,6 +441,7 @@
           <div><span>Sett</span>128 × 84</div>
           <div><span>Drape</span>Fluid</div>
         </div>
+        <div class="code-source">Sourced from ENZO Nova Silk (NS-01, Boski, 70% Viscose / 30% Polyester) — <a href="https://enzolhr.com/catalog.html" target="_blank" rel="noopener noreferrer">view mill catalogue</a></div>
       </div>
       <div class="code-card">
         <div class="code-id">RQ-W3</div>
@@ -430,6 +453,7 @@
           <div><span>Sett</span>96 × 72</div>
           <div><span>Drape</span>Structural</div>
         </div>
+        <div class="code-source">Sourced from ENZO Wostar Wool (WW-07, Wool Blend, Winter Weight) — <a href="https://enzolhr.com/catalog.html" target="_blank" rel="noopener noreferrer">view mill catalogue</a></div>
       </div>
       <div class="code-card">
         <div class="code-id">RQ-A4</div>
@@ -440,6 +464,33 @@
           <div><span>Weight</span>192 GSM</div>
           <div><span>Sett</span>124 × 88</div>
           <div><span>Drape</span>Neutral</div>
+        </div>
+        <div class="code-source">Sourced from ENZO Bluebird — Winter (BB-04, 20% Viscose / 80% Polyester) — <a href="https://enzolhr.com/catalog.html" target="_blank" rel="noopener noreferrer">view mill catalogue</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lineage" class="section-dark">
+  <div class="wrap reveal">
+    <div class="eyebrow"><span class="diamond"></span>The ENZO Relationship</div>
+    <h2 style="font-size:clamp(26px,3.6vw,38px);max-width:680px;margin-top:22px;">RAQI does not run a mill. ENZO does.</h2>
+    <div class="lineage-grid">
+      <div class="lineage-copy">
+        <p>RAQI is the finished-goods line of ENZO, Lahore's wholesale fabric manufacturer. ENZO produces the raw construction at scale — the weave, the blend, the dye lot — out of its Faisalabad production floor.</p>
+        <p>RAQI draws small, curated lots from that same production run and finishes them into suiting lengths sold by the piece, not the roll. Every RAQI code traces back to a named ENZO article — the mill's specification sheet, not a separate supply chain.</p>
+        <p><a href="https://enzolhr.com/" target="_blank" rel="noopener noreferrer" style="color:var(--gold);border-bottom:1px solid var(--gold);">See the mill at enzolhr.com →</a></p>
+      </div>
+      <div class="lineage-flow">
+        <div class="lineage-step">
+          <div class="step-label">Raw Material — Faisalabad</div>
+          <div class="step-name">ENZO</div>
+          <div class="step-desc">Wholesale manufacturer. 10,000m minimum order, per-roll pricing, B2B only.</div>
+        </div>
+        <div class="lineage-step">
+          <div class="step-label">Finished Goods — Lahore</div>
+          <div class="step-name">RAQI</div>
+          <div class="step-desc">Small-batch suiting lengths cut from ENZO's production. By appointment, by the piece.</div>
         </div>
       </div>
     </div>
