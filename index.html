@@ -196,17 +196,6 @@
   .argtable .delivers{font-family:var(--mono);font-size:13px;letter-spacing:0.01em;}
 
   /* ---------- Four Codes ---------- */
-  .codes-grid{
-    display:grid;grid-template-columns:1fr;gap:1px;
-    background:var(--chocolate-line);
-    margin-top:56px;border:1px solid var(--chocolate-line);
-  }
-  @media(min-width:700px){ .codes-grid{grid-template-columns:1fr 1fr;} }
-  .code-card{
-    background:var(--chocolate);padding:40px 34px;
-    transition:background .3s ease;
-  }
-  .code-card:hover{background:#33221d;}
   .code-id{
     font-family:var(--mono);font-size:12px;letter-spacing:0.1em;color:var(--gold);
   }
@@ -228,6 +217,30 @@
   }
   .code-source a{color:var(--gold);border-bottom:1px solid transparent;}
   .code-source a:hover{border-color:var(--gold);}
+
+  /* ---------- Store ---------- */
+  .store-grid{
+    display:grid;grid-template-columns:1fr;gap:1px;
+    background:var(--chocolate-line);
+    margin-top:56px;border:1px solid var(--chocolate-line);
+  }
+  @media(min-width:700px){ .store-grid{grid-template-columns:1fr 1fr;} }
+  .store-card{background:var(--chocolate);display:flex;flex-direction:column;}
+  .store-img{
+    position:relative;aspect-ratio:4/5;background:#241713;
+    border-bottom:1px solid var(--chocolate-line);overflow:hidden;
+  }
+  .store-img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .store-img-fallback{
+    position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+    justify-content:center;gap:12px;
+  }
+  .store-img-fallback span:last-child{
+    font-family:var(--mono);font-size:11px;letter-spacing:0.12em;color:#8a746b;
+  }
+  .store-img.has-image .store-img-fallback{display:none;}
+  .store-body{padding:32px 30px 34px;}
+  .store-cta{margin-top:22px;width:100%;justify-content:center;}
 
   /* ---------- Lineage ---------- */
   .lineage-grid{display:grid;grid-template-columns:1fr;gap:40px;margin-top:44px;align-items:start;}
@@ -413,59 +426,83 @@
 
 <section id="codes">
   <div class="wrap reveal">
-    <div class="eyebrow"><span class="diamond"></span>Product Architecture</div>
+    <div class="eyebrow"><span class="diamond"></span>The Store</div>
     <h2 style="font-size:clamp(28px,4vw,44px);margin-top:22px;">The Four Codes</h2>
-    <p class="body-copy" style="max-width:560px;margin-top:18px;">Four foundational constructions. Six shades each. The catalogue stays shallow on purpose — depth is expressed in shade, not in SKU count.</p>
+    <p class="body-copy" style="max-width:560px;margin-top:18px;">Four foundational constructions. Six shades each. The catalogue stays shallow on purpose — depth is expressed in shade, not in SKU count. Mill photography arriving soon.</p>
   </div>
   <div class="wrap">
-    <div class="codes-grid reveal">
-      <div class="code-card">
-        <div class="code-id">RQ-S1</div>
-        <div class="code-name">Safa</div>
-        <div class="code-season">Spring / Summer — the dry-hand opener</div>
-        <p class="code-desc">Micro-crepe weave with a dry, springy hand that stands slightly away from the body. The first fabric to put in a client's hand.</p>
-        <div class="code-specs">
-          <div><span>Weight</span>150 GSM</div>
-          <div><span>Sett</span>108 × 76</div>
-          <div><span>Drape</span>Standing</div>
+    <div class="store-grid reveal">
+      <div class="store-card">
+        <div class="store-img" data-src="https://enzolhr.com/assets/products/bb-04-summer.webp" data-alt="RAQI Safa">
+          <div class="store-img-fallback"><span class="diamond outline"></span><span>RQ-S1</span></div>
         </div>
-        <div class="code-source">Sourced from ENZO Bluebird — Summer (BB-04, 20% Viscose / 80% Polyester) — <a href="https://enzolhr.com/catalog.html" target="_blank" rel="noopener noreferrer">view mill catalogue</a></div>
+        <div class="store-body">
+          <div class="code-id">RQ-S1</div>
+          <div class="code-name">Safa</div>
+          <div class="code-season">Spring / Summer — the dry-hand opener</div>
+          <p class="code-desc">Micro-crepe weave with a dry, springy hand that stands slightly away from the body. The first fabric to put in a client's hand.</p>
+          <div class="code-specs">
+            <div><span>Weight</span>150 GSM</div>
+            <div><span>Sett</span>108 × 76</div>
+            <div><span>Drape</span>Standing</div>
+          </div>
+          <div class="code-source">ENZO Bluebird — Summer (BB-04, 20% Viscose / 80% Polyester)</div>
+          <button type="button" class="btn btn-dark store-cta" data-code="Safa">Request This Code</button>
+        </div>
       </div>
-      <div class="code-card">
-        <div class="code-id">RQ-S2</div>
-        <div class="code-name">Noor</div>
-        <div class="code-season">Summer / Mid-Season — the evening code</div>
-        <p class="code-desc">Fluid, weighted fall engineered for hall lighting — scatters light rather than flashing under LED or tungsten.</p>
-        <div class="code-specs">
-          <div><span>Weight</span>166 GSM</div>
-          <div><span>Sett</span>128 × 84</div>
-          <div><span>Drape</span>Fluid</div>
+      <div class="store-card">
+        <div class="store-img" data-src="https://enzolhr.com/assets/products/ns-01.webp" data-alt="RAQI Noor">
+          <div class="store-img-fallback"><span class="diamond outline"></span><span>RQ-S2</span></div>
         </div>
-        <div class="code-source">Sourced from ENZO Nova Silk (NS-01, Boski, 70% Viscose / 30% Polyester) — <a href="https://enzolhr.com/catalog.html" target="_blank" rel="noopener noreferrer">view mill catalogue</a></div>
+        <div class="store-body">
+          <div class="code-id">RQ-S2</div>
+          <div class="code-name">Noor</div>
+          <div class="code-season">Summer / Mid-Season — the evening code</div>
+          <p class="code-desc">Fluid, weighted fall engineered for hall lighting — scatters light rather than flashing under LED or tungsten.</p>
+          <div class="code-specs">
+            <div><span>Weight</span>166 GSM</div>
+            <div><span>Sett</span>128 × 84</div>
+            <div><span>Drape</span>Fluid</div>
+          </div>
+          <div class="code-source">ENZO Nova Silk (NS-01, Boski, 70% Viscose / 30% Polyester)</div>
+          <button type="button" class="btn btn-dark store-cta" data-code="Noor">Request This Code</button>
+        </div>
       </div>
-      <div class="code-card">
-        <div class="code-id">RQ-W3</div>
-        <div class="code-name">Waqar</div>
-        <div class="code-season">Autumn / Winter — the structural code</div>
-        <p class="code-desc">Poly-wool worsted that holds a pressed pleat and a sculptural fold. The range's quiet authority piece.</p>
-        <div class="code-specs">
-          <div><span>Weight</span>247 GSM</div>
-          <div><span>Sett</span>96 × 72</div>
-          <div><span>Drape</span>Structural</div>
+      <div class="store-card">
+        <div class="store-img" data-src="https://enzolhr.com/assets/products/ww-07.webp" data-alt="RAQI Waqar">
+          <div class="store-img-fallback"><span class="diamond outline"></span><span>RQ-W3</span></div>
         </div>
-        <div class="code-source">Sourced from ENZO Wostar Wool (WW-07, Wool Blend, Winter Weight) — <a href="https://enzolhr.com/catalog.html" target="_blank" rel="noopener noreferrer">view mill catalogue</a></div>
+        <div class="store-body">
+          <div class="code-id">RQ-W3</div>
+          <div class="code-name">Waqar</div>
+          <div class="code-season">Autumn / Winter — the structural code</div>
+          <p class="code-desc">Poly-wool worsted that holds a pressed pleat and a sculptural fold. The range's quiet authority piece.</p>
+          <div class="code-specs">
+            <div><span>Weight</span>247 GSM</div>
+            <div><span>Sett</span>96 × 72</div>
+            <div><span>Drape</span>Structural</div>
+          </div>
+          <div class="code-source">ENZO Wostar Wool (WW-07, Wool Blend, Winter Weight)</div>
+          <button type="button" class="btn btn-dark store-cta" data-code="Waqar">Request This Code</button>
+        </div>
       </div>
-      <div class="code-card">
-        <div class="code-id">RQ-A4</div>
-        <div class="code-name">Daim</div>
-        <div class="code-season">All-Season — the daily driver</div>
-        <p class="code-desc">Balanced, wash-and-wear construction with no knee or seat memory at hour twelve. The permanent core.</p>
-        <div class="code-specs">
-          <div><span>Weight</span>192 GSM</div>
-          <div><span>Sett</span>124 × 88</div>
-          <div><span>Drape</span>Neutral</div>
+      <div class="store-card">
+        <div class="store-img" data-src="https://enzolhr.com/assets/products/bb-04-winter.webp" data-alt="RAQI Daim">
+          <div class="store-img-fallback"><span class="diamond outline"></span><span>RQ-A4</span></div>
         </div>
-        <div class="code-source">Sourced from ENZO Bluebird — Winter (BB-04, 20% Viscose / 80% Polyester) — <a href="https://enzolhr.com/catalog.html" target="_blank" rel="noopener noreferrer">view mill catalogue</a></div>
+        <div class="store-body">
+          <div class="code-id">RQ-A4</div>
+          <div class="code-name">Daim</div>
+          <div class="code-season">All-Season — the daily driver</div>
+          <p class="code-desc">Balanced, wash-and-wear construction with no knee or seat memory at hour twelve. The permanent core.</p>
+          <div class="code-specs">
+            <div><span>Weight</span>192 GSM</div>
+            <div><span>Sett</span>124 × 88</div>
+            <div><span>Drape</span>Neutral</div>
+          </div>
+          <div class="code-source">ENZO Bluebird — Winter (BB-04, 20% Viscose / 80% Polyester)</div>
+          <button type="button" class="btn btn-dark store-cta" data-code="Daim">Request This Code</button>
+        </div>
       </div>
     </div>
   </div>
@@ -618,6 +655,34 @@
   } else {
     els.forEach(el=>el.classList.add('in'));
   }
+</script>
+
+<script>
+  // Store card images — only swap in the real ENZO asset if it actually loads,
+  // so a missing photo never flashes a broken-image icon; falls back to the code mark.
+  document.querySelectorAll('.store-img[data-src]').forEach(function (box) {
+    var src = box.getAttribute('data-src');
+    var probe = new Image();
+    probe.onload = function () {
+      var img = document.createElement('img');
+      img.src = src;
+      img.alt = box.getAttribute('data-alt') || '';
+      img.loading = 'lazy';
+      box.insertBefore(img, box.firstChild);
+      box.classList.add('has-image');
+    };
+    probe.src = src;
+  });
+
+  // "Request This Code" — prefill the contact form and scroll to it
+  document.querySelectorAll('.store-cta').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var codeField = document.getElementById('r-code');
+      if (codeField) codeField.value = btn.getAttribute('data-code') || '';
+      var contact = document.getElementById('contact');
+      if (contact) contact.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
 </script>
 
 <script>
