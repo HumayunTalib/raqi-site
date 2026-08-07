@@ -3,10 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RAQI — Worn Above</title>
+<title>RAQI — Boutique Suiting Fabric, Lahore | Worn Above</title>
+<meta name="description" content="RAQI is a boutique made-to-measure suiting fabric line from Lahore, Pakistan, sourced from ENZO's mill. Small-batch quality, sold by the piece. Message us on WhatsApp for a same-day response.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#2B1B17">
+<link rel="canonical" href="https://enzolhr.com/raqi-site/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RAQI">
+<meta property="og:url" content="https://enzolhr.com/raqi-site/">
+<meta property="og:title" content="RAQI — Boutique Suiting Fabric, Lahore">
+<meta property="og:description" content="Cloth that thinks with you. Small-batch suiting fabric sourced from ENZO's mill — sold by the piece, by appointment, in Lahore.">
+<meta property="og:image" content="https://enzolhr.com/raqi-site/assets/og-image.png">
+<meta property="og:locale" content="en_PK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RAQI — Boutique Suiting Fabric, Lahore">
+<meta name="twitter:description" content="Cloth that thinks with you. Small-batch suiting fabric sourced from ENZO's mill — sold by the piece, by appointment, in Lahore.">
+<meta name="twitter:image" content="https://enzolhr.com/raqi-site/assets/og-image.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%232B1B17'/%3E%3Crect x='11' y='11' width='10' height='10' fill='%23C5A059' transform='rotate(45 16 16)'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Naskh+Arabic:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ClothingStore",
+  "name": "RAQI",
+  "alternateName": "RAQI — Worn Above",
+  "url": "https://enzolhr.com/raqi-site/",
+  "image": "https://enzolhr.com/raqi-site/assets/og-image.png",
+  "description": "Boutique made-to-measure suiting fabric, sold by the piece, sourced from ENZO's wholesale mill in Faisalabad and finished in Lahore.",
+  "telephone": "+923218230266",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "ENZO Tower, Thokar Niaz Baig",
+    "addressLocality": "Lahore",
+    "addressCountry": "PK"
+  },
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "ENZO",
+    "alternateName": "Humayun Ibrahim Textile",
+    "url": "https://enzolhr.com/"
+  },
+  "sameAs": ["https://enzolhr.com/"]
+}
+</script>
 <style>
   :root{
     --chocolate:#2B1B17;
@@ -145,6 +187,15 @@
     font-size:15px;line-height:1.75;color:#cabbb2;margin-top:20px;max-width:460px;
   }
   .hero-actions{display:flex;gap:16px;margin-top:40px;flex-wrap:wrap;}
+  .trust-bar{
+    display:flex;flex-wrap:wrap;gap:14px 24px;margin-top:32px;
+    font-family:var(--mono);font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:#cabbb2;
+  }
+  .trust-bar span{position:relative;padding-left:16px;}
+  .trust-bar span::before{
+    content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);
+    width:6px;height:6px;background:var(--gold);border-radius:50%;
+  }
 
   /* Drape SVG */
   .drape-wrap{position:relative;height:420px;}
@@ -327,6 +378,21 @@
   }
 
   :focus-visible{outline:1px solid var(--gold);outline-offset:3px;}
+
+  /* ---------- Floating WhatsApp ---------- */
+  .wa-float{
+    position:fixed;right:22px;bottom:22px;z-index:60;
+    width:56px;height:56px;border-radius:50%;
+    background:#25D366;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 18px rgba(0,0,0,0.35);
+    animation:wa-pulse 2.6s ease-in-out infinite;
+  }
+  .wa-float:hover{box-shadow:0 6px 22px rgba(0,0,0,0.45);}
+  @keyframes wa-pulse{
+    0%, 100%{ box-shadow:0 4px 18px rgba(0,0,0,0.35), 0 0 0 0 rgba(37,211,102,0.55); }
+    50%{ box-shadow:0 4px 18px rgba(0,0,0,0.35), 0 0 0 10px rgba(37,211,102,0); }
+  }
+  @media(prefers-reduced-motion: reduce){ .wa-float{animation:none;} }
 </style>
 </head>
 <body>
@@ -350,14 +416,19 @@
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="hero-word">Raqi</div>
+      <h1 class="hero-word">Raqi</h1>
       <div class="hero-arabic">رقي</div>
       <div class="hero-tagline">Worn Above</div>
       <p class="hero-sub">Cloth that thinks with you.</p>
       <p class="hero-body">There is a specific hour in a working day when a man's clothing stops being an asset and becomes a liability. The cut was never the problem. The cloth was. RAQI exists to remove that hour.</p>
       <div class="hero-actions">
-        <a href="#contact" class="btn btn-light">Request the Fabric Folder</a>
+        <a href="https://wa.me/923218230266?text=Hello%20RAQI%2C%20I%27d%20like%20to%20know%20more%20about%20your%20suiting%20fabric." target="_blank" rel="noopener noreferrer" class="btn btn-light">Chat on WhatsApp</a>
         <a href="#codes" class="btn btn-ghost">View the Four Codes</a>
+      </div>
+      <div class="trust-bar">
+        <span>Sourced from ENZO Mill</span>
+        <span>1 Business Day Response</span>
+        <span>By Appointment — Lahore</span>
       </div>
     </div>
     <div class="drape-wrap" aria-hidden="true">
@@ -448,6 +519,7 @@
           </div>
           <div class="code-source">ENZO Bluebird — Summer (BB-04, 20% Viscose / 80% Polyester)</div>
           <button type="button" class="btn btn-dark store-cta" data-code="Safa">Request This Code</button>
+          <a href="https://wa.me/923218230266?text=Hello%20RAQI%2C%20I%27d%20like%20to%20ask%20about%20the%20Safa%20code." target="_blank" rel="noopener noreferrer" class="code-source" style="display:block;text-align:center;margin-top:12px;">or ask on WhatsApp →</a>
         </div>
       </div>
       <div class="store-card">
@@ -466,6 +538,7 @@
           </div>
           <div class="code-source">ENZO Nova Silk (NS-01, Boski, 70% Viscose / 30% Polyester)</div>
           <button type="button" class="btn btn-dark store-cta" data-code="Noor">Request This Code</button>
+          <a href="https://wa.me/923218230266?text=Hello%20RAQI%2C%20I%27d%20like%20to%20ask%20about%20the%20Noor%20code." target="_blank" rel="noopener noreferrer" class="code-source" style="display:block;text-align:center;margin-top:12px;">or ask on WhatsApp →</a>
         </div>
       </div>
       <div class="store-card">
@@ -484,6 +557,7 @@
           </div>
           <div class="code-source">ENZO Wostar Wool (WW-07, Wool Blend, Winter Weight)</div>
           <button type="button" class="btn btn-dark store-cta" data-code="Waqar">Request This Code</button>
+          <a href="https://wa.me/923218230266?text=Hello%20RAQI%2C%20I%27d%20like%20to%20ask%20about%20the%20Waqar%20code." target="_blank" rel="noopener noreferrer" class="code-source" style="display:block;text-align:center;margin-top:12px;">or ask on WhatsApp →</a>
         </div>
       </div>
       <div class="store-card">
@@ -502,6 +576,7 @@
           </div>
           <div class="code-source">ENZO Bluebird — Winter (BB-04, 20% Viscose / 80% Polyester)</div>
           <button type="button" class="btn btn-dark store-cta" data-code="Daim">Request This Code</button>
+          <a href="https://wa.me/923218230266?text=Hello%20RAQI%2C%20I%27d%20like%20to%20ask%20about%20the%20Daim%20code." target="_blank" rel="noopener noreferrer" class="code-source" style="display:block;text-align:center;margin-top:12px;">or ask on WhatsApp →</a>
         </div>
       </div>
     </div>
@@ -596,8 +671,9 @@
 
       <div>
         <div class="contact-card">
-          <p class="label">WhatsApp</p>
+          <p class="label">WhatsApp — fastest response</p>
           <a href="https://wa.me/923218230266" target="_blank" rel="noopener noreferrer">+92 321 8230266</a>
+          <a href="https://wa.me/923218230266?text=Hello%20RAQI%2C%20I%27d%20like%20to%20know%20more%20about%20your%20suiting%20fabric." target="_blank" rel="noopener noreferrer" class="btn btn-light" style="margin-top:14px;width:100%;justify-content:center;">Open WhatsApp</a>
         </div>
         <div class="contact-card">
           <p class="label">Email</p>
@@ -635,12 +711,16 @@
       <div class="foot-meta">
         ENZO Tower, Thokar Niaz Baig<br>
         Lahore, Pakistan<br>
-        +92 321 8230266 &middot; By appointment only
+        <a href="https://wa.me/923218230266" target="_blank" rel="noopener noreferrer" style="color:inherit;border-bottom:1px solid var(--gold);">+92 321 8230266</a> &middot; By appointment only
       </div>
     </div>
     <div class="foot-note">This page is a pre-launch build.</div>
   </div>
 </footer>
+
+<a href="https://wa.me/923218230266?text=Hello%20RAQI%2C%20I%27d%20like%20to%20know%20more%20about%20your%20suiting%20fabric." target="_blank" rel="noopener noreferrer" class="wa-float" aria-label="Chat with RAQI on WhatsApp">
+  <svg viewBox="0 0 24 24" width="26" height="26" fill="#F2F0EB" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .105 5.36.102 11.943c0 2.105.548 4.16 1.591 5.976L0 24l6.223-1.632a11.9 11.9 0 0 0 5.822 1.484h.005c6.58 0 11.938-5.359 11.941-11.943a11.87 11.87 0 0 0-3.47-8.46zM12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.981.999-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.234c.002-5.45 4.437-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.83 9.83 0 0 1 2.893 6.994c-.003 5.45-4.437 9.859-9.886 9.859z"/></svg>
+</a>
 
 <script>
   // Scroll reveal
