@@ -276,12 +276,18 @@
     margin-top:56px;border:1px solid var(--chocolate-line);
   }
   @media(min-width:700px){ .store-grid{grid-template-columns:1fr 1fr;} }
-  .store-card{background:var(--chocolate);display:flex;flex-direction:column;}
+  .store-card{
+    background:var(--chocolate);display:flex;flex-direction:column;position:relative;
+    border:1px solid transparent;transition:border-color .25s ease, transform .25s ease;
+  }
+  .store-card:hover{transform:translateY(-3px);}
+  .store-card.is-selected{border-color:var(--gold);}
   .store-img{
     position:relative;aspect-ratio:4/5;background:#241713;
     border-bottom:1px solid var(--chocolate-line);overflow:hidden;
   }
-  .store-img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .store-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;}
+  .store-card:hover .store-img img{transform:scale(1.045);}
   .store-img-fallback{
     position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
     justify-content:center;gap:12px;
@@ -291,7 +297,16 @@
   }
   .store-img.has-image .store-img-fallback{display:none;}
   .store-body{padding:32px 30px 34px;}
-  .store-cta{margin-top:22px;width:100%;justify-content:center;}
+  .in-stock{
+    display:flex;align-items:center;gap:7px;margin-top:14px;
+    font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:#8fbf8a;
+  }
+  .in-stock::before{content:'';width:6px;height:6px;border-radius:50%;background:#4caf50;flex:none;}
+  .store-add{margin-top:22px;width:100%;justify-content:center;transition:background .2s ease, border-color .2s ease;}
+  .store-add.is-added{background:transparent;border-color:var(--gold);color:var(--gold);}
+  @media(prefers-reduced-motion: reduce){
+    .store-card, .store-card:hover, .store-img img, .store-card:hover .store-img img{transition:none;transform:none;}
+  }
 
   /* ---------- Lineage ---------- */
   .lineage-grid{display:grid;grid-template-columns:1fr;gap:40px;margin-top:44px;align-items:start;}
@@ -393,6 +408,24 @@
     50%{ box-shadow:0 4px 18px rgba(0,0,0,0.35), 0 0 0 10px rgba(37,211,102,0); }
   }
   @media(prefers-reduced-motion: reduce){ .wa-float{animation:none;} }
+
+  /* ---------- Selection Cart ---------- */
+  .cart-bar{
+    position:fixed;right:22px;bottom:90px;z-index:59;
+    display:flex;align-items:center;gap:14px;
+    background:var(--chocolate);border:1px solid var(--gold);
+    padding:12px 16px;border-radius:999px;
+    transform:translateY(10px) scale(0.96);opacity:0;pointer-events:none;
+    transition:opacity .25s ease, transform .25s ease;
+    box-shadow:0 4px 18px rgba(0,0,0,0.3);
+  }
+  .cart-bar.visible{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
+  .cart-bar-count{
+    font-family:var(--mono);font-size:12px;letter-spacing:0.05em;color:var(--ash);white-space:nowrap;
+  }
+  .cart-bar .btn{padding:8px 16px;font-size:12px;}
+  @media(max-width:480px){ .cart-bar{right:14px;left:14px;bottom:88px;justify-content:space-between;} }
+  @media(prefers-reduced-motion: reduce){ .cart-bar{transition:none;} }
 </style>
 </head>
 <body>
@@ -518,7 +551,8 @@
             <div><span>Drape</span>Standing</div>
           </div>
           <div class="code-source">ENZO Bluebird — Summer (BB-04, 20% Viscose / 80% Polyester)</div>
-          <button type="button" class="btn btn-dark store-cta" data-code="Safa">Request This Code</button>
+          <div class="in-stock">In Stock — Ready to Cut</div>
+          <button type="button" class="btn btn-dark store-add" data-code="Safa">+ Add to Selection</button>
           <a href="https://wa.me/923218230266?text=Hello%20RAQI%2C%20I%27d%20like%20to%20ask%20about%20the%20Safa%20code." target="_blank" rel="noopener noreferrer" class="code-source" style="display:block;text-align:center;margin-top:12px;">or ask on WhatsApp →</a>
         </div>
       </div>
@@ -537,7 +571,8 @@
             <div><span>Drape</span>Fluid</div>
           </div>
           <div class="code-source">ENZO Nova Silk (NS-01, Boski, 70% Viscose / 30% Polyester)</div>
-          <button type="button" class="btn btn-dark store-cta" data-code="Noor">Request This Code</button>
+          <div class="in-stock">In Stock — Ready to Cut</div>
+          <button type="button" class="btn btn-dark store-add" data-code="Noor">+ Add to Selection</button>
           <a href="https://wa.me/923218230266?text=Hello%20RAQI%2C%20I%27d%20like%20to%20ask%20about%20the%20Noor%20code." target="_blank" rel="noopener noreferrer" class="code-source" style="display:block;text-align:center;margin-top:12px;">or ask on WhatsApp →</a>
         </div>
       </div>
@@ -556,7 +591,8 @@
             <div><span>Drape</span>Structural</div>
           </div>
           <div class="code-source">ENZO Wostar Wool (WW-07, Wool Blend, Winter Weight)</div>
-          <button type="button" class="btn btn-dark store-cta" data-code="Waqar">Request This Code</button>
+          <div class="in-stock">In Stock — Ready to Cut</div>
+          <button type="button" class="btn btn-dark store-add" data-code="Waqar">+ Add to Selection</button>
           <a href="https://wa.me/923218230266?text=Hello%20RAQI%2C%20I%27d%20like%20to%20ask%20about%20the%20Waqar%20code." target="_blank" rel="noopener noreferrer" class="code-source" style="display:block;text-align:center;margin-top:12px;">or ask on WhatsApp →</a>
         </div>
       </div>
@@ -575,7 +611,8 @@
             <div><span>Drape</span>Neutral</div>
           </div>
           <div class="code-source">ENZO Bluebird — Winter (BB-04, 20% Viscose / 80% Polyester)</div>
-          <button type="button" class="btn btn-dark store-cta" data-code="Daim">Request This Code</button>
+          <div class="in-stock">In Stock — Ready to Cut</div>
+          <button type="button" class="btn btn-dark store-add" data-code="Daim">+ Add to Selection</button>
           <a href="https://wa.me/923218230266?text=Hello%20RAQI%2C%20I%27d%20like%20to%20ask%20about%20the%20Daim%20code." target="_blank" rel="noopener noreferrer" class="code-source" style="display:block;text-align:center;margin-top:12px;">or ask on WhatsApp →</a>
         </div>
       </div>
@@ -718,6 +755,11 @@
   </div>
 </footer>
 
+<div id="cart-bar" class="cart-bar">
+  <span class="cart-bar-count"><span id="cart-count">0</span> Selected</span>
+  <a id="cart-send" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-light">Send via WhatsApp</a>
+</div>
+
 <a href="https://wa.me/923218230266?text=Hello%20RAQI%2C%20I%27d%20like%20to%20know%20more%20about%20your%20suiting%20fabric." target="_blank" rel="noopener noreferrer" class="wa-float" aria-label="Chat with RAQI on WhatsApp">
   <svg viewBox="0 0 24 24" width="26" height="26" fill="#F2F0EB" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .105 5.36.102 11.943c0 2.105.548 4.16 1.591 5.976L0 24l6.223-1.632a11.9 11.9 0 0 0 5.822 1.484h.005c6.58 0 11.938-5.359 11.941-11.943a11.87 11.87 0 0 0-3.47-8.46zM12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.981.999-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.234c.002-5.45 4.437-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.83 9.83 0 0 1 2.893 6.994c-.003 5.45-4.437 9.859-9.886 9.859z"/></svg>
 </a>
@@ -754,15 +796,46 @@
     probe.src = src;
   });
 
-  // "Request This Code" — prefill the contact form and scroll to it
-  document.querySelectorAll('.store-cta').forEach(function (btn) {
-    btn.addEventListener('click', function () {
+  // Selection cart — pick codes, then send the whole list to WhatsApp in one message.
+  (function () {
+    var PHONE = '923218230266';
+    var selection = [];
+    var cartBar = document.getElementById('cart-bar');
+    var cartCount = document.getElementById('cart-count');
+    var cartSend = document.getElementById('cart-send');
+
+    function updateCart() {
+      var n = selection.length;
+      cartCount.textContent = n;
+      cartBar.classList.toggle('visible', n > 0);
       var codeField = document.getElementById('r-code');
-      if (codeField) codeField.value = btn.getAttribute('data-code') || '';
-      var contact = document.getElementById('contact');
-      if (contact) contact.scrollIntoView({ behavior: 'smooth' });
+      if (codeField) codeField.value = selection.join(', ');
+      if (n > 0) {
+        var msg = "Hello RAQI, I'd like more details on: " + selection.join(', ') + '.';
+        cartSend.href = 'https://wa.me/' + PHONE + '?text=' + encodeURIComponent(msg);
+      }
+    }
+
+    document.querySelectorAll('.store-add').forEach(function (btn) {
+      var code = btn.getAttribute('data-code');
+      btn.addEventListener('click', function () {
+        var card = btn.closest('.store-card');
+        var idx = selection.indexOf(code);
+        if (idx === -1) {
+          selection.push(code);
+          btn.textContent = '✓ Added';
+          btn.classList.add('is-added');
+          if (card) card.classList.add('is-selected');
+        } else {
+          selection.splice(idx, 1);
+          btn.textContent = '+ Add to Selection';
+          btn.classList.remove('is-added');
+          if (card) card.classList.remove('is-selected');
+        }
+        updateCart();
+      });
     });
-  });
+  })();
 </script>
 
 <script>
