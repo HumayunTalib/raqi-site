@@ -429,9 +429,49 @@
   .cart-bar-count{
     font-family:var(--mono);font-size:12px;letter-spacing:0.05em;color:var(--ash);white-space:nowrap;
   }
-  .cart-bar .btn{padding:8px 16px;font-size:12px;}
+  .cart-bar .btn{padding:8px 16px;font-size:12px;cursor:pointer;}
   @media(max-width:480px){ .cart-bar{right:14px;left:14px;bottom:88px;justify-content:space-between;} }
   @media(prefers-reduced-motion: reduce){ .cart-bar{transition:none;} }
+
+  .cart-backdrop{
+    position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:65;
+    opacity:0;pointer-events:none;transition:opacity .3s ease;
+  }
+  .cart-backdrop.visible{opacity:1;pointer-events:auto;}
+  .cart-drawer{
+    position:fixed;top:0;right:0;height:100%;width:360px;max-width:88vw;
+    background:var(--chocolate);border-left:1px solid var(--chocolate-line);
+    z-index:70;transform:translateX(100%);transition:transform .3s ease;
+    display:flex;flex-direction:column;
+  }
+  .cart-drawer.open{transform:translateX(0);}
+  .cart-drawer-header{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:24px 24px 18px;border-bottom:1px solid var(--chocolate-line);
+    font-family:var(--mono);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);
+    flex:none;
+  }
+  .cart-drawer-close{
+    background:none;border:none;color:var(--ash);font-size:22px;line-height:1;
+    cursor:pointer;padding:0;width:24px;height:24px;
+  }
+  .cart-drawer-close:hover{color:var(--gold);}
+  .cart-drawer-items{flex:1;overflow-y:auto;padding:8px 24px;}
+  .cart-item{display:flex;align-items:center;gap:14px;padding:16px 0;border-bottom:1px solid var(--chocolate-line);}
+  .cart-item:last-child{border-bottom:none;}
+  .cart-item-thumb{width:52px;height:65px;background:#241713;flex:none;overflow:hidden;}
+  .cart-item-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+  .cart-item-info{flex:1;min-width:0;}
+  .cart-item-name{font-family:var(--serif);font-size:16px;}
+  .cart-item-sub{font-family:var(--mono);font-size:10px;color:#8a746b;margin-top:3px;}
+  .cart-item-remove{
+    background:none;border:none;color:#8a746b;font-size:19px;line-height:1;
+    cursor:pointer;padding:6px;flex:none;
+  }
+  .cart-item-remove:hover{color:var(--gold);}
+  .cart-drawer-empty{font-family:var(--mono);font-size:12px;color:#8a746b;text-align:center;padding:48px 0;}
+  .cart-drawer-footer{padding:20px 24px 24px;border-top:1px solid var(--chocolate-line);flex:none;}
+  @media(prefers-reduced-motion: reduce){ .cart-drawer, .cart-backdrop{transition:none;} }
 </style>
 </head>
 <body>
@@ -775,8 +815,20 @@
 
 <div id="cart-bar" class="cart-bar">
   <span class="cart-bar-count"><span id="cart-count">0</span> Selected</span>
-  <a id="cart-send" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-light">Send via WhatsApp</a>
+  <button type="button" id="cart-view" class="btn btn-light">View Cart</button>
 </div>
+
+<div id="cart-backdrop" class="cart-backdrop"></div>
+<aside id="cart-drawer" class="cart-drawer" aria-hidden="true" aria-label="Your selection">
+  <div class="cart-drawer-header">
+    <span>Your Selection</span>
+    <button type="button" id="cart-close" class="cart-drawer-close" aria-label="Close cart">&times;</button>
+  </div>
+  <div class="cart-drawer-items" id="cart-items"></div>
+  <div class="cart-drawer-footer">
+    <a id="cart-drawer-send" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-light" style="width:100%;justify-content:center;">Send via WhatsApp</a>
+  </div>
+</aside>
 
 <a href="https://wa.me/923218230266?text=Hello%20RAQI%2C%20I%27d%20like%20to%20know%20more%20about%20your%20suiting%20fabric." target="_blank" rel="noopener noreferrer" class="wa-float" aria-label="Chat with RAQI on WhatsApp">
   <svg viewBox="0 0 24 24" width="26" height="26" fill="#F2F0EB" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .105 5.36.102 11.943c0 2.105.548 4.16 1.591 5.976L0 24l6.223-1.632a11.9 11.9 0 0 0 5.822 1.484h.005c6.58 0 11.938-5.359 11.941-11.943a11.87 11.87 0 0 0-3.47-8.46zM12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.981.999-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.234c.002-5.45 4.437-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.83 9.83 0 0 1 2.893 6.994c-.003 5.45-4.437 9.859-9.886 9.859z"/></svg>
@@ -814,47 +866,99 @@
     probe.src = src;
   });
 
-  // Selection cart — pick codes, then send the whole list to WhatsApp in one message.
+  // Selection cart — pick codes, review them in a slide-out drawer, then send the whole list to WhatsApp.
   (function () {
     var PHONE = '923218230266';
-    var selection = [];
-    var cartBar = document.getElementById('cart-bar');
-    var cartCount = document.getElementById('cart-count');
-    var cartSend = document.getElementById('cart-send');
-
-    function updateCart() {
-      var n = selection.length;
-      cartCount.textContent = n;
-      cartBar.classList.toggle('visible', n > 0);
-      var codeField = document.getElementById('r-code');
-      if (codeField) codeField.value = selection.join(', ');
-      if (n > 0) {
-        var msg = "Hello RAQI, I'd like more details on: " + selection.join(', ') + '.';
-        cartSend.href = 'https://wa.me/' + PHONE + '?text=' + encodeURIComponent(msg);
-      }
-    }
-
+    var PRODUCTS = {
+      Safa:  { sub: 'Spring / Summer',    img: 'https://enzolhr.com/assets/products/bb-04-summer.webp' },
+      Noor:  { sub: 'Summer / Mid-Season', img: 'https://enzolhr.com/assets/products/ns-01.webp' },
+      Waqar: { sub: 'Autumn / Winter',    img: 'https://enzolhr.com/assets/products/ww-07.webp' },
+      Daim:  { sub: 'All-Season',         img: 'https://enzolhr.com/assets/products/bb-04-winter.webp' }
+    };
     var ICON_PLUS  = '<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>';
     var ICON_CHECK = '<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
+    var selection = [];
+    var cartBar    = document.getElementById('cart-bar');
+    var cartCount  = document.getElementById('cart-count');
+    var cartView   = document.getElementById('cart-view');
+    var drawer     = document.getElementById('cart-drawer');
+    var backdrop   = document.getElementById('cart-backdrop');
+    var closeBtn   = document.getElementById('cart-close');
+    var itemsBox   = document.getElementById('cart-items');
+    var sendBtn    = document.getElementById('cart-drawer-send');
+    var codeField  = document.getElementById('r-code');
+
+    function setAdded(code, added) {
+      var btn = document.querySelector('.store-quickadd[data-code="' + code + '"]');
+      if (!btn) return;
+      btn.innerHTML = added ? ICON_CHECK : ICON_PLUS;
+      btn.classList.toggle('is-added', added);
+      btn.setAttribute('aria-label', (added ? 'Remove ' : 'Add ') + code + (added ? ' from selection' : ' to selection'));
+    }
+
+    function renderItems() {
+      if (!selection.length) {
+        itemsBox.innerHTML = '<p class="cart-drawer-empty">No codes selected yet.</p>';
+        return;
+      }
+      itemsBox.innerHTML = selection.map(function (code) {
+        var p = PRODUCTS[code] || {};
+        return '<div class="cart-item">' +
+          '<div class="cart-item-thumb"><img src="' + (p.img || '') + '" alt="" loading="lazy" onerror="this.style.display=\'none\'"></div>' +
+          '<div class="cart-item-info"><div class="cart-item-name">' + code + '</div><div class="cart-item-sub">' + (p.sub || '') + '</div></div>' +
+          '<button type="button" class="cart-item-remove" data-code="' + code + '" aria-label="Remove ' + code + ' from selection">&times;</button>' +
+        '</div>';
+      }).join('');
+    }
+
+    function update() {
+      var n = selection.length;
+      cartCount.textContent = n;
+      cartBar.classList.toggle('visible', n > 0);
+      if (codeField) codeField.value = selection.join(', ');
+      renderItems();
+      if (n > 0) {
+        var msg = "Hello RAQI, I'd like more details on: " + selection.join(', ') + '.';
+        sendBtn.href = 'https://wa.me/' + PHONE + '?text=' + encodeURIComponent(msg);
+      }
+    }
+
+    function toggle(code) {
+      var idx = selection.indexOf(code);
+      if (idx === -1) { selection.push(code); setAdded(code, true); }
+      else { selection.splice(idx, 1); setAdded(code, false); }
+      update();
+    }
+
     document.querySelectorAll('.store-quickadd').forEach(function (btn) {
-      var code = btn.getAttribute('data-code');
-      btn.addEventListener('click', function () {
-        var idx = selection.indexOf(code);
-        if (idx === -1) {
-          selection.push(code);
-          btn.innerHTML = ICON_CHECK;
-          btn.classList.add('is-added');
-          btn.setAttribute('aria-label', 'Remove ' + code + ' from selection');
-        } else {
-          selection.splice(idx, 1);
-          btn.innerHTML = ICON_PLUS;
-          btn.classList.remove('is-added');
-          btn.setAttribute('aria-label', 'Add ' + code + ' to selection');
-        }
-        updateCart();
-      });
+      btn.addEventListener('click', function () { toggle(btn.getAttribute('data-code')); });
     });
+
+    itemsBox.addEventListener('click', function (e) {
+      var btn = e.target.closest('.cart-item-remove');
+      if (btn) toggle(btn.getAttribute('data-code'));
+    });
+
+    function openDrawer() {
+      drawer.classList.add('open');
+      backdrop.classList.add('visible');
+      drawer.setAttribute('aria-hidden', 'false');
+    }
+    function closeDrawer() {
+      drawer.classList.remove('open');
+      backdrop.classList.remove('visible');
+      drawer.setAttribute('aria-hidden', 'true');
+    }
+
+    cartView.addEventListener('click', openDrawer);
+    closeBtn.addEventListener('click', closeDrawer);
+    backdrop.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeDrawer();
+    });
+
+    update();
   })();
 </script>
 
