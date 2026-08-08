@@ -246,47 +246,22 @@
   .argtable .fails{color:var(--chocolate);opacity:0.6;}
   .argtable .delivers{font-family:var(--mono);font-size:13px;letter-spacing:0.01em;}
 
-  /* ---------- Four Codes ---------- */
-  .code-id{
-    font-family:var(--mono);font-size:12px;letter-spacing:0.1em;color:var(--gold);
-  }
-  .code-name{
-    font-family:var(--serif);font-size:30px;margin-top:10px;text-transform:uppercase;letter-spacing:0.04em;
-  }
-  .code-season{
-    font-size:13px;color:#cabbb2;margin-top:6px;font-family:var(--mono);letter-spacing:0.03em;
-  }
-  .code-desc{font-size:14.5px;line-height:1.7;color:#e6ddd6;margin-top:18px;max-width:340px;}
-  .code-specs{
-    display:flex;gap:26px;margin-top:24px;padding-top:20px;
-    border-top:1px solid var(--chocolate-line);
-    font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:0.03em;
-  }
-  .code-specs span{color:#cabbb2;display:block;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px;}
-  .code-source{
-    margin-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:0.03em;color:#cabbb2;
-  }
-  .code-source a{color:var(--gold);border-bottom:1px solid transparent;}
-  .code-source a:hover{border-color:var(--gold);}
-
   /* ---------- Store ---------- */
   .store-grid{
-    display:grid;grid-template-columns:1fr;gap:1px;
-    background:var(--chocolate-line);
-    margin-top:56px;border:1px solid var(--chocolate-line);
+    display:grid;grid-template-columns:1fr;gap:56px 32px;
+    margin-top:56px;
   }
-  @media(min-width:700px){ .store-grid{grid-template-columns:1fr 1fr;} }
+  @media(min-width:640px){ .store-grid{grid-template-columns:1fr 1fr;} }
+  @media(min-width:1080px){ .store-grid{grid-template-columns:repeat(4,1fr);gap:48px 28px;} }
   .store-card{
-    background:var(--chocolate);display:flex;flex-direction:column;position:relative;
-    border:1px solid transparent;transition:border-color .25s ease, transform .25s ease;
+    background:transparent;display:flex;flex-direction:column;
+    transition:transform .25s ease;
   }
-  .store-card:hover{transform:translateY(-3px);}
-  .store-card.is-selected{border-color:var(--gold);}
+  .store-card:hover{transform:translateY(-4px);}
   .store-img{
-    position:relative;aspect-ratio:4/5;background:#241713;
-    border-bottom:1px solid var(--chocolate-line);overflow:hidden;
+    position:relative;aspect-ratio:4/5;background:#241713;overflow:hidden;
   }
-  .store-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;}
+  .store-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
   .store-card:hover .store-img img{transform:scale(1.045);}
   .store-img-fallback{
     position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
@@ -296,14 +271,45 @@
     font-family:var(--mono);font-size:11px;letter-spacing:0.12em;color:#8a746b;
   }
   .store-img.has-image .store-img-fallback{display:none;}
-  .store-body{padding:32px 30px 34px;}
+  .store-quickadd{
+    position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;
+    background:rgba(43,27,23,0.55);backdrop-filter:blur(4px);
+    border:1px solid rgba(242,240,235,0.4);
+    display:flex;align-items:center;justify-content:center;color:var(--ash);
+    transition:background .2s ease, border-color .2s ease, color .2s ease;
+    cursor:pointer;padding:0;
+  }
+  .store-quickadd:hover{border-color:var(--gold);}
+  .store-quickadd.is-added{background:var(--gold);border-color:var(--gold);color:var(--chocolate);}
+  .store-body{padding-top:18px;}
+  .store-name{font-size:19px;margin:0;}
+  .store-sub{font-size:13px;color:#8a746b;margin-top:5px;}
+  .store-code{
+    font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;
+    color:#8a746b;margin-top:9px;
+  }
+  .store-ask{
+    display:inline-block;margin-top:14px;font-family:var(--mono);font-size:11px;
+    letter-spacing:0.03em;color:var(--gold);border-bottom:1px solid transparent;
+  }
+  .store-ask:hover{border-color:var(--gold);}
+  .store-details{margin-top:16px;}
+  .store-details summary{
+    cursor:pointer;list-style:none;font-family:var(--mono);font-size:11px;letter-spacing:0.08em;
+    text-transform:uppercase;color:#cabbb2;display:flex;align-items:center;gap:8px;
+  }
+  .store-details summary::-webkit-details-marker{display:none;}
+  .store-details summary::before{content:'+';font-size:14px;color:var(--gold);line-height:1;}
+  .store-details[open] summary::before{content:'−';}
+  .store-details-body{margin-top:14px;}
+  .code-desc{font-size:14px;line-height:1.7;color:#cabbb2;max-width:320px;}
+  .code-specs-inline{display:flex;gap:18px;margin-top:14px;font-family:var(--mono);font-size:11px;color:#8a746b;}
+  .code-source{margin-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:0.03em;color:#8a746b;}
   .in-stock{
-    display:flex;align-items:center;gap:7px;margin-top:14px;
+    display:flex;align-items:center;gap:7px;margin-top:12px;
     font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:#8fbf8a;
   }
   .in-stock::before{content:'';width:6px;height:6px;border-radius:50%;background:#4caf50;flex:none;}
-  .store-add{margin-top:22px;width:100%;justify-content:center;transition:background .2s ease, border-color .2s ease;}
-  .store-add.is-added{background:transparent;border-color:var(--gold);color:var(--gold);}
   @media(prefers-reduced-motion: reduce){
     .store-card, .store-card:hover, .store-img img, .store-card:hover .store-img img{transition:none;transform:none;}
   }
@@ -539,81 +545,93 @@
       <div class="store-card">
         <div class="store-img" data-src="https://enzolhr.com/assets/products/bb-04-summer.webp" data-alt="RAQI Safa">
           <div class="store-img-fallback"><span class="diamond outline"></span><span>RQ-S1</span></div>
+          <button type="button" class="store-quickadd" data-code="Safa" aria-label="Add Safa to selection">
+            <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+          </button>
         </div>
         <div class="store-body">
-          <div class="code-id">RQ-S1</div>
-          <div class="code-name">Safa</div>
-          <div class="code-season">Spring / Summer — the dry-hand opener</div>
-          <p class="code-desc">Micro-crepe weave with a dry, springy hand that stands slightly away from the body. The first fabric to put in a client's hand.</p>
-          <div class="code-specs">
-            <div><span>Weight</span>150 GSM</div>
-            <div><span>Sett</span>108 × 76</div>
-            <div><span>Drape</span>Standing</div>
-          </div>
-          <div class="code-source">ENZO Bluebird — Summer (BB-04, 20% Viscose / 80% Polyester)</div>
-          <div class="in-stock">In Stock — Ready to Cut</div>
-          <button type="button" class="btn btn-dark store-add" data-code="Safa">+ Add to Selection</button>
-          <a href="https://wa.me/923218230266?text=Hello%20RAQI%2C%20I%27d%20like%20to%20ask%20about%20the%20Safa%20code." target="_blank" rel="noopener noreferrer" class="code-source" style="display:block;text-align:center;margin-top:12px;">or ask on WhatsApp →</a>
+          <h3 class="store-name">Safa</h3>
+          <div class="store-sub">Spring / Summer — the dry-hand opener</div>
+          <div class="store-code">RQ-S1 &middot; 150 GSM</div>
+          <a href="https://wa.me/923218230266?text=Hello%20RAQI%2C%20I%27d%20like%20to%20ask%20about%20the%20Safa%20code." target="_blank" rel="noopener noreferrer" class="store-ask">Ask about this code →</a>
+          <details class="store-details">
+            <summary>Details</summary>
+            <div class="store-details-body">
+              <p class="code-desc">Micro-crepe weave with a dry, springy hand that stands slightly away from the body. The first fabric to put in a client's hand.</p>
+              <div class="code-specs-inline"><span>Sett 108 × 76</span><span>Drape Standing</span></div>
+              <div class="code-source">ENZO Bluebird — Summer (BB-04, 20% Viscose / 80% Polyester)</div>
+              <div class="in-stock">In Stock — Ready to Cut</div>
+            </div>
+          </details>
         </div>
       </div>
       <div class="store-card">
         <div class="store-img" data-src="https://enzolhr.com/assets/products/ns-01.webp" data-alt="RAQI Noor">
           <div class="store-img-fallback"><span class="diamond outline"></span><span>RQ-S2</span></div>
+          <button type="button" class="store-quickadd" data-code="Noor" aria-label="Add Noor to selection">
+            <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+          </button>
         </div>
         <div class="store-body">
-          <div class="code-id">RQ-S2</div>
-          <div class="code-name">Noor</div>
-          <div class="code-season">Summer / Mid-Season — the evening code</div>
-          <p class="code-desc">Fluid, weighted fall engineered for hall lighting — scatters light rather than flashing under LED or tungsten.</p>
-          <div class="code-specs">
-            <div><span>Weight</span>166 GSM</div>
-            <div><span>Sett</span>128 × 84</div>
-            <div><span>Drape</span>Fluid</div>
-          </div>
-          <div class="code-source">ENZO Nova Silk (NS-01, Boski, 70% Viscose / 30% Polyester)</div>
-          <div class="in-stock">In Stock — Ready to Cut</div>
-          <button type="button" class="btn btn-dark store-add" data-code="Noor">+ Add to Selection</button>
-          <a href="https://wa.me/923218230266?text=Hello%20RAQI%2C%20I%27d%20like%20to%20ask%20about%20the%20Noor%20code." target="_blank" rel="noopener noreferrer" class="code-source" style="display:block;text-align:center;margin-top:12px;">or ask on WhatsApp →</a>
+          <h3 class="store-name">Noor</h3>
+          <div class="store-sub">Summer / Mid-Season — the evening code</div>
+          <div class="store-code">RQ-S2 &middot; 166 GSM</div>
+          <a href="https://wa.me/923218230266?text=Hello%20RAQI%2C%20I%27d%20like%20to%20ask%20about%20the%20Noor%20code." target="_blank" rel="noopener noreferrer" class="store-ask">Ask about this code →</a>
+          <details class="store-details">
+            <summary>Details</summary>
+            <div class="store-details-body">
+              <p class="code-desc">Fluid, weighted fall engineered for hall lighting — scatters light rather than flashing under LED or tungsten.</p>
+              <div class="code-specs-inline"><span>Sett 128 × 84</span><span>Drape Fluid</span></div>
+              <div class="code-source">ENZO Nova Silk (NS-01, Boski, 70% Viscose / 30% Polyester)</div>
+              <div class="in-stock">In Stock — Ready to Cut</div>
+            </div>
+          </details>
         </div>
       </div>
       <div class="store-card">
         <div class="store-img" data-src="https://enzolhr.com/assets/products/ww-07.webp" data-alt="RAQI Waqar">
           <div class="store-img-fallback"><span class="diamond outline"></span><span>RQ-W3</span></div>
+          <button type="button" class="store-quickadd" data-code="Waqar" aria-label="Add Waqar to selection">
+            <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+          </button>
         </div>
         <div class="store-body">
-          <div class="code-id">RQ-W3</div>
-          <div class="code-name">Waqar</div>
-          <div class="code-season">Autumn / Winter — the structural code</div>
-          <p class="code-desc">Poly-wool worsted that holds a pressed pleat and a sculptural fold. The range's quiet authority piece.</p>
-          <div class="code-specs">
-            <div><span>Weight</span>247 GSM</div>
-            <div><span>Sett</span>96 × 72</div>
-            <div><span>Drape</span>Structural</div>
-          </div>
-          <div class="code-source">ENZO Wostar Wool (WW-07, Wool Blend, Winter Weight)</div>
-          <div class="in-stock">In Stock — Ready to Cut</div>
-          <button type="button" class="btn btn-dark store-add" data-code="Waqar">+ Add to Selection</button>
-          <a href="https://wa.me/923218230266?text=Hello%20RAQI%2C%20I%27d%20like%20to%20ask%20about%20the%20Waqar%20code." target="_blank" rel="noopener noreferrer" class="code-source" style="display:block;text-align:center;margin-top:12px;">or ask on WhatsApp →</a>
+          <h3 class="store-name">Waqar</h3>
+          <div class="store-sub">Autumn / Winter — the structural code</div>
+          <div class="store-code">RQ-W3 &middot; 247 GSM</div>
+          <a href="https://wa.me/923218230266?text=Hello%20RAQI%2C%20I%27d%20like%20to%20ask%20about%20the%20Waqar%20code." target="_blank" rel="noopener noreferrer" class="store-ask">Ask about this code →</a>
+          <details class="store-details">
+            <summary>Details</summary>
+            <div class="store-details-body">
+              <p class="code-desc">Poly-wool worsted that holds a pressed pleat and a sculptural fold. The range's quiet authority piece.</p>
+              <div class="code-specs-inline"><span>Sett 96 × 72</span><span>Drape Structural</span></div>
+              <div class="code-source">ENZO Wostar Wool (WW-07, Wool Blend, Winter Weight)</div>
+              <div class="in-stock">In Stock — Ready to Cut</div>
+            </div>
+          </details>
         </div>
       </div>
       <div class="store-card">
         <div class="store-img" data-src="https://enzolhr.com/assets/products/bb-04-winter.webp" data-alt="RAQI Daim">
           <div class="store-img-fallback"><span class="diamond outline"></span><span>RQ-A4</span></div>
+          <button type="button" class="store-quickadd" data-code="Daim" aria-label="Add Daim to selection">
+            <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+          </button>
         </div>
         <div class="store-body">
-          <div class="code-id">RQ-A4</div>
-          <div class="code-name">Daim</div>
-          <div class="code-season">All-Season — the daily driver</div>
-          <p class="code-desc">Balanced, wash-and-wear construction with no knee or seat memory at hour twelve. The permanent core.</p>
-          <div class="code-specs">
-            <div><span>Weight</span>192 GSM</div>
-            <div><span>Sett</span>124 × 88</div>
-            <div><span>Drape</span>Neutral</div>
-          </div>
-          <div class="code-source">ENZO Bluebird — Winter (BB-04, 20% Viscose / 80% Polyester)</div>
-          <div class="in-stock">In Stock — Ready to Cut</div>
-          <button type="button" class="btn btn-dark store-add" data-code="Daim">+ Add to Selection</button>
-          <a href="https://wa.me/923218230266?text=Hello%20RAQI%2C%20I%27d%20like%20to%20ask%20about%20the%20Daim%20code." target="_blank" rel="noopener noreferrer" class="code-source" style="display:block;text-align:center;margin-top:12px;">or ask on WhatsApp →</a>
+          <h3 class="store-name">Daim</h3>
+          <div class="store-sub">All-Season — the daily driver</div>
+          <div class="store-code">RQ-A4 &middot; 192 GSM</div>
+          <a href="https://wa.me/923218230266?text=Hello%20RAQI%2C%20I%27d%20like%20to%20ask%20about%20the%20Daim%20code." target="_blank" rel="noopener noreferrer" class="store-ask">Ask about this code →</a>
+          <details class="store-details">
+            <summary>Details</summary>
+            <div class="store-details-body">
+              <p class="code-desc">Balanced, wash-and-wear construction with no knee or seat memory at hour twelve. The permanent core.</p>
+              <div class="code-specs-inline"><span>Sett 124 × 88</span><span>Drape Neutral</span></div>
+              <div class="code-source">ENZO Bluebird — Winter (BB-04, 20% Viscose / 80% Polyester)</div>
+              <div class="in-stock">In Stock — Ready to Cut</div>
+            </div>
+          </details>
         </div>
       </div>
     </div>
@@ -816,21 +834,23 @@
       }
     }
 
-    document.querySelectorAll('.store-add').forEach(function (btn) {
+    var ICON_PLUS  = '<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>';
+    var ICON_CHECK = '<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+    document.querySelectorAll('.store-quickadd').forEach(function (btn) {
       var code = btn.getAttribute('data-code');
       btn.addEventListener('click', function () {
-        var card = btn.closest('.store-card');
         var idx = selection.indexOf(code);
         if (idx === -1) {
           selection.push(code);
-          btn.textContent = '✓ Added';
+          btn.innerHTML = ICON_CHECK;
           btn.classList.add('is-added');
-          if (card) card.classList.add('is-selected');
+          btn.setAttribute('aria-label', 'Remove ' + code + ' from selection');
         } else {
           selection.splice(idx, 1);
-          btn.textContent = '+ Add to Selection';
+          btn.innerHTML = ICON_PLUS;
           btn.classList.remove('is-added');
-          if (card) card.classList.remove('is-selected');
+          btn.setAttribute('aria-label', 'Add ' + code + ' to selection');
         }
         updateCart();
       });
