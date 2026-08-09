@@ -187,17 +187,19 @@
       filterDrawer.classList.add('open');
       filterBackdrop.classList.add('visible');
       filterDrawer.setAttribute('aria-hidden', 'false');
+      if (filterDrawerClose) filterDrawerClose.focus();
     }
     function closeFilters() {
       filterDrawer.classList.remove('open');
       filterBackdrop.classList.remove('visible');
       filterDrawer.setAttribute('aria-hidden', 'true');
+      filtersToggle.focus();
     }
     filtersToggle.addEventListener('click', openFilters);
     if (filterDrawerClose) filterDrawerClose.addEventListener('click', closeFilters);
     filterBackdrop.addEventListener('click', closeFilters);
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeFilters();
+      if (e.key === 'Escape' && filterDrawer.classList.contains('open')) closeFilters();
     });
   }
 

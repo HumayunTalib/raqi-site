@@ -264,17 +264,19 @@ var RaqiCart = (function () {
       drawer.classList.add('open');
       backdrop.classList.add('visible');
       drawer.setAttribute('aria-hidden', 'false');
+      if (closeBtn) closeBtn.focus();
     }
     function closeDrawer() {
       drawer.classList.remove('open');
       backdrop.classList.remove('visible');
       drawer.setAttribute('aria-hidden', 'true');
+      cartView.focus();
     }
     cartView.addEventListener('click', openDrawer);
     if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
     backdrop.addEventListener('click', closeDrawer);
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeDrawer();
+      if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
     });
   }
 
