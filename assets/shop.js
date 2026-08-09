@@ -102,21 +102,24 @@
       return '<span class="swatch" style="background:' + c.hex + '" title="' + c.name + '"></span>';
     }).join('');
     var waMsg = encodeURIComponent("Hello RAQI, I'd like to ask about the " + p.code + " code.");
+    var pageHref = 'product-' + p.slug + '.html';
     return (
       '<div class="store-card">' +
         '<div class="store-img" data-src="' + p.image + '" data-alt="RAQI ' + p.code + '">' +
           '<div class="store-img-fallback"><span class="diamond outline"></span><span>' + p.id + '</span></div>' +
+          '<a href="' + pageHref + '" class="store-img-link" aria-label="View ' + p.code + '"></a>' +
           '<button type="button" class="store-quickadd" data-code="' + p.code + '" aria-label="Add ' + p.code + ' to selection">' +
             '<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>' +
           '</button>' +
         '</div>' +
         '<div class="store-body">' +
-          '<h3 class="store-name">' + p.code + '</h3>' +
+          '<h3 class="store-name"><a href="' + pageHref + '" style="color:inherit;">' + p.code + '</a></h3>' +
           '<div class="store-sub">' + p.season + ' — ' + p.tagline + '</div>' +
           '<div class="store-code">' + p.id + ' &middot; ' + p.gsm + ' GSM</div>' +
           '<div class="store-price">Rs. ' + p.price + ' / metre</div>' +
           '<div class="store-swatches">' + swatches + '</div>' +
-          '<a href="https://wa.me/' + PHONE + '?text=' + waMsg + '" target="_blank" rel="noopener noreferrer" class="store-ask">Ask about this code →</a>' +
+          '<a href="' + pageHref + '" class="store-ask">View Fabric →</a>' +
+          '<a href="https://wa.me/' + PHONE + '?text=' + waMsg + '" target="_blank" rel="noopener noreferrer" class="store-ask" style="display:block;margin-top:8px;">Ask about this code →</a>' +
           '<details class="store-details">' +
             '<summary>Details</summary>' +
             '<div class="store-details-body">' +

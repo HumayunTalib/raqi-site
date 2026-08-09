@@ -200,8 +200,9 @@ section{padding:72px 0;}
   font-family:var(--mono);font-size:11px;letter-spacing:0.12em;color:#a3937f;
 }
 .store-img.has-image .store-img-fallback{display:none;}
+.store-img-link{position:absolute;inset:0;z-index:1;}
 .store-quickadd{
-  position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;
+  position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;z-index:2;
   background:rgba(43,27,23,0.55);backdrop-filter:blur(4px);
   border:1px solid rgba(242,240,235,0.4);
   display:flex;align-items:center;justify-content:center;color:var(--ash);
