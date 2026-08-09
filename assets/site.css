@@ -165,14 +165,14 @@ section{padding:72px 0;}
 .swatch-tile:hover{transform:scale(1.08);}
 
 /* ---------- Purpose grid (Shop by Purpose) ---------- */
-.purpose-grid{display:grid;grid-template-columns:1fr;gap:1px;margin-top:40px;background:var(--chocolate-line);border:1px solid var(--chocolate-line);}
+.purpose-grid{display:grid;grid-template-columns:1fr;gap:1px;margin-top:40px;background:var(--ash-line);border:1px solid var(--ash-line);}
 @media(min-width:640px){ .purpose-grid{grid-template-columns:repeat(4,1fr);} }
 .purpose-card{
-  background:var(--chocolate);padding:28px 24px;display:flex;flex-direction:column;gap:10px;
+  background:var(--ash);padding:28px 24px;display:flex;flex-direction:column;gap:10px;
   transition:background .2s ease;
 }
-.purpose-card:hover{background:#33221d;}
-.purpose-name{font-family:var(--serif);font-size:18px;color:var(--ash);line-height:1.3;}
+.purpose-card:hover{background:#e8e2d8;}
+.purpose-name{font-family:var(--serif);font-size:18px;color:var(--chocolate);line-height:1.3;}
 .purpose-code{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);}
 
 /* ---------- Product / Store cards (shared: shop.html + homepage teasers) ---------- */

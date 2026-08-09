@@ -72,7 +72,7 @@
     enquireLink.addEventListener('click', function (e) {
       e.preventDefault();
       if (!RaqiCart.has(product.code)) RaqiCart.toggle(product.code);
-      window.location.href = 'index.html#contact';
+      window.location.href = 'contact.html';
     });
   }
 

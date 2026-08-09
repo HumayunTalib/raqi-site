@@ -112,115 +112,12 @@
     text-transform:uppercase;color:#8a746b;margin-top:6px;
   }
 
-/* ---------- Philosophy ---------- */
-  .pull{
-    font-family:var(--serif);font-weight:400;
-    font-size:clamp(24px,3.4vw,36px);
-    line-height:1.35;margin:30px 0 34px;
-    max-width:760px;
-  }
-  .two-col{display:grid;grid-template-columns:1fr;gap:40px;}
-  @media(min-width:840px){ .two-col{grid-template-columns:0.8fr 1.2fr;gap:80px;} }
-
-  /* ---------- Argument table ---------- */
-  .argtable{width:100%;border-collapse:collapse;margin-top:8px;}
-  .argtable th{
-    text-align:left;font-family:var(--mono);font-size:11px;letter-spacing:0.1em;
-    text-transform:uppercase;color:var(--chocolate);opacity:0.55;
-    padding:14px 18px 14px 0;border-bottom:1px solid var(--ash-line);
-    font-weight:400;
-  }
-  .argtable td{
-    padding:22px 18px 22px 0;border-bottom:1px solid var(--ash-line);
-    vertical-align:top;font-size:14.5px;line-height:1.65;
-  }
-  .argtable td:first-child{
-    font-family:var(--serif);font-size:17px;white-space:nowrap;padding-right:28px;
-  }
-  .argtable .fails{color:var(--chocolate);opacity:0.6;}
-  .argtable .delivers{font-family:var(--mono);font-size:13px;letter-spacing:0.01em;}
-
-/* ---------- Lineage ---------- */
-  .lineage-grid{display:grid;grid-template-columns:1fr;gap:40px;margin-top:44px;align-items:start;}
-  @media(min-width:840px){ .lineage-grid{grid-template-columns:1fr 1fr;gap:80px;} }
-  .lineage-copy{font-size:15.5px;line-height:1.8;color:#cabbb2;}
-  .lineage-copy p + p{margin-top:16px;}
-  .lineage-flow{
-    display:flex;flex-direction:column;gap:0;border:1px solid var(--chocolate-line);
-  }
-  .lineage-step{padding:24px 26px;border-bottom:1px solid var(--chocolate-line);}
-  .lineage-step:last-child{border-bottom:none;}
-  .lineage-step .step-label{
-    font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);
-  }
-  .lineage-step .step-name{font-family:var(--serif);font-size:22px;margin-top:8px;}
-  .lineage-step .step-desc{font-size:13.5px;color:#cabbb2;margin-top:8px;line-height:1.6;}
-
-  /* ---------- Access ---------- */
-  .access-grid{display:grid;grid-template-columns:1fr;gap:48px;margin-top:50px;}
-  @media(min-width:840px){ .access-grid{grid-template-columns:repeat(3,1fr);} }
-  .access-item h3{font-size:19px;font-weight:400;margin-bottom:12px;}
-  .access-item p{font-size:14.5px;line-height:1.75;color:var(--chocolate);opacity:0.85;}
-  .doctrine-line{
-    font-family:var(--mono);font-size:13px;letter-spacing:0.02em;
-    padding-top:14px;margin-top:14px;border-top:1px solid var(--ash-line);
-    opacity:0.75;
-  }
-  .notify-box{
-    margin-top:40px;padding-top:32px;border-top:1px solid var(--ash-line);
-    display:flex;flex-direction:column;gap:18px;
-  }
-  @media(min-width:700px){ .notify-box{flex-direction:row;align-items:center;justify-content:space-between;gap:32px;} }
-  .notify-label{font-family:var(--serif);font-size:18px;}
-  .notify-copy{font-size:14px;color:var(--chocolate);opacity:0.75;margin-top:4px;max-width:340px;}
-  .notify-form{display:flex;gap:10px;flex-wrap:wrap;}
-  .notify-form input[type=email]{
-    background:transparent;border:none;border-bottom:1px solid var(--ash-line);
-    padding:10px 4px;font-family:var(--sans);font-size:14px;color:var(--chocolate);min-width:200px;
-  }
-  .notify-form input[type=email]:focus{outline:none;border-color:var(--gold);}
-  .notify-status{font-family:var(--mono);font-size:12px;margin-top:12px;}
-
   .cta-band{
     background:var(--chocolate);color:var(--ash);text-align:center;
   }
   .cta-band h2{font-size:clamp(28px,4vw,42px);margin-bottom:20px;}
   .cta-band p{color:#cabbb2;max-width:480px;margin:0 auto 36px;font-size:15px;}
 
-  /* ---------- Contact ---------- */
-  .contact-grid{display:grid;grid-template-columns:1fr;gap:56px;margin-top:48px;}
-  @media(min-width:900px){ .contact-grid{grid-template-columns:1.2fr 0.8fr;} }
-  .field{margin-bottom:22px;}
-  .field label{
-    display:block;font-family:var(--mono);font-size:11px;letter-spacing:0.1em;
-    text-transform:uppercase;color:var(--gold);margin-bottom:10px;
-  }
-  .field input, .field textarea{
-    width:100%;background:transparent;border:none;border-bottom:1px solid var(--chocolate-line);
-    color:var(--ash);font-family:var(--sans);font-size:15px;padding:10px 2px;
-    transition:border-color .25s ease;
-  }
-  .field input::placeholder, .field textarea::placeholder{color:#8a746b;}
-  .field input:focus, .field textarea:focus{outline:none;border-color:var(--gold);}
-  .field textarea{resize:vertical;min-height:96px;}
-  .form-row{display:grid;grid-template-columns:1fr;gap:0 28px;}
-  @media(min-width:560px){ .form-row{grid-template-columns:1fr 1fr;} }
-  .form-status{
-    font-family:var(--mono);font-size:13px;margin-top:18px;min-height:18px;color:#cabbb2;
-  }
-  .contact-card{
-    background:#33221d;border:1px solid var(--chocolate-line);border-radius:2px;
-    padding:26px 28px;margin-bottom:18px;
-  }
-  .contact-card p.label{
-    font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
-    color:var(--gold);margin-bottom:10px;
-  }
-  .contact-card a, .contact-card address{
-    font-family:var(--mono);font-size:14px;color:var(--ash);line-height:1.7;font-style:normal;
-  }
-  .contact-card a{display:inline-block;border-bottom:1px solid transparent;}
-  .contact-card a:hover{border-color:var(--gold);}
 </style>
 </head>
 <body>
@@ -248,11 +145,12 @@
           </div>
         </div>
       </div>
-      <a href="#philosophy">About</a>
-      <a href="#contact">Contact</a>
+      <a href="about.html">About</a>
+      <a href="trade.html">Trade</a>
+      <a href="contact.html">Contact</a>
     </div>
     <div style="display:flex;align-items:center;gap:8px;">
-      <a href="#contact" class="btn btn-dark" style="padding:11px 18px;">Request Appointment</a>
+      <a href="contact.html" class="btn btn-dark" style="padding:11px 18px;">Request Appointment</a>
       <button type="button" id="nav-toggle" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
         <span aria-hidden="true"></span><span aria-hidden="true"></span>
       </button>
@@ -276,8 +174,9 @@
       <a href="shop.html?season=winter">Winter</a>
       <a href="shop.html?season=all-season">All-Season</a>
     </div>
-    <a href="#philosophy">About</a>
-    <a href="#contact">Contact</a>
+    <a href="about.html">About</a>
+    <a href="trade.html">Trade</a>
+    <a href="contact.html">Contact</a>
     <a href="https://wa.me/923218230266" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
   </nav>
 </div>
@@ -314,57 +213,6 @@
     <div><span class="trust-num">By Appt.</span><span class="trust-label">Access</span></div>
   </div>
 </div>
-
-<section id="philosophy">
-  <div class="wrap reveal">
-    <div class="eyebrow"><span class="diamond"></span>Brand Philosophy</div>
-    <h2 class="pull">RAQI does not sell cloth. RAQI sells the condition in which a man forgets what he is wearing — and is therefore entirely present in the room.</h2>
-    <div class="two-col">
-      <div>
-        <div class="foot-arabic" style="font-size:32px;">رقي</div>
-        <p style="font-family:var(--mono);font-size:12px;letter-spacing:0.08em;color:var(--gold);margin-top:12px;text-transform:uppercase;">Enclothed Cognition</p>
-      </div>
-      <div class="body-copy">
-        <p>What a person wears alters not only how others perceive them, but how they think, focus, and hold themselves — provided the garment satisfies two conditions at once: symbolic meaning, and physical ease. Most tailoring solves one. RAQI is built on the premise that fabric is the only variable that can satisfy both in the same operation.</p>
-        <p>We do not name fibers. We specify behaviours — fall, recovery, thermal response, colour permanence — and build the yarn that produces them. The result does not announce itself. It is recognised at the distance of a handshake, by the small number of people who know what they are looking at.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="argument" class="section-dark">
-  <div class="wrap reveal">
-    <div class="eyebrow"><span class="diamond"></span>The Material Argument</div>
-    <h2 style="font-size:clamp(26px,3.6vw,38px);max-width:680px;margin-top:22px;">We did not select a fiber. We specified a behaviour, and then built the yarn that produces it.</h2>
-    <table class="argtable" style="margin-top:44px;">
-      <thead>
-        <tr><th>Condition</th><th>Orthodoxy fails because</th><th>Engineered blend delivers</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Drape</td>
-          <td class="fails">Fluid fall in wool is achieved only at weights too heavy to wear through eight months of heat.</td>
-          <td class="delivers">Filament fineness + controlled twist decouple drape from weight.</td>
-        </tr>
-        <tr>
-          <td>Recovery</td>
-          <td class="fails">Cellulosic and protein fibers deform plastically under body heat and load.</td>
-          <td class="delivers">Elastic recovery returns the cloth to plane without pressing.</td>
-        </tr>
-        <tr>
-          <td>Stability</td>
-          <td class="fails">Cotton and viscose relax and bag at the knee and seat by evening.</td>
-          <td class="delivers">Heat-set filament geometry holds its line through the day.</td>
-        </tr>
-        <tr>
-          <td>Colour</td>
-          <td class="fails">Reactive dyes on cellulose fade under UV and repeated laundering.</td>
-          <td class="delivers">Pressure-dyed colour lives inside the fiber, not on it.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
 
 <section id="codes">
   <div class="wrap reveal">
@@ -493,10 +341,10 @@
   </div>
 </section>
 
-<section id="shop-by-purpose" class="section-dark">
+<section id="shop-by-purpose">
   <div class="wrap reveal">
     <div class="eyebrow"><span class="diamond"></span>Shop by Purpose</div>
-    <h2 style="font-size:clamp(26px,3.6vw,36px);margin-top:22px;color:var(--ash);">Start with how you'll wear it.</h2>
+    <h2 style="font-size:clamp(26px,3.6vw,36px);margin-top:22px;">Start with how you'll wear it.</h2>
     <div class="purpose-grid">
       <a href="shop.html?character=standing" class="purpose-card">
         <span class="purpose-name">Crisp &amp; Warm-Weather</span>
@@ -518,131 +366,12 @@
   </div>
 </section>
 
-<section id="lineage" class="section-dark">
-  <div class="wrap reveal">
-    <div class="eyebrow"><span class="diamond"></span>The ENZO Relationship</div>
-    <h2 style="font-size:clamp(26px,3.6vw,38px);max-width:680px;margin-top:22px;">RAQI does not run a mill. ENZO does.</h2>
-    <div class="lineage-grid">
-      <div class="lineage-copy">
-        <p>RAQI is the finished-goods line of ENZO, Lahore's wholesale fabric manufacturer. ENZO produces the raw construction at scale — the weave, the blend, the dye lot — out of its Faisalabad production floor.</p>
-        <p>RAQI draws small, curated lots from that same production run and finishes them into suiting lengths sold by the piece, not the roll. Every RAQI code traces back to a named ENZO article — the mill's specification sheet, not a separate supply chain.</p>
-        <p><a href="https://enzolhr.com/" target="_blank" rel="noopener noreferrer" style="color:var(--gold);border-bottom:1px solid var(--gold);">See the mill at enzolhr.com →</a></p>
-      </div>
-      <div class="lineage-flow">
-        <div class="lineage-step">
-          <div class="step-label">Raw Material — Faisalabad</div>
-          <div class="step-name">ENZO</div>
-          <div class="step-desc">Wholesale manufacturer. 10,000m minimum order, per-roll pricing, B2B only.</div>
-        </div>
-        <div class="lineage-step">
-          <div class="step-label">Finished Goods — Lahore</div>
-          <div class="step-name">RAQI</div>
-          <div class="step-desc">Small-batch suiting lengths cut from ENZO's production. By appointment, by the piece.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="access">
-  <div class="wrap reveal">
-    <div class="eyebrow"><span class="diamond"></span>Access</div>
-    <h2 style="font-size:clamp(28px,4vw,44px);margin-top:22px;">By Appointment</h2>
-    <div class="access-grid">
-      <div class="access-item">
-        <h3>The Showroom</h3>
-        <p>Fabric is shown on the cutting table, unrolled, so its fall is visible before its price. An evening-light booth lets a shade be checked against wedding-hall conditions before it is cut.</p>
-      </div>
-      <div class="access-item">
-        <h3>Shade Lots</h3>
-        <p>Colour is committed in lots of four suit-lengths. When a shade closes, it is not re-dyed. What remains open is stated plainly, not advertised as urgency.</p>
-      </div>
-      <div class="access-item">
-        <h3>The Register</h3>
-        <p>Clients are tiered by relationship, not spend threshold alone. Register clients receive first allocation, blind selvedge by default, and access to House Commission.</p>
-      </div>
-    </div>
-    <div class="doctrine-line">One price. No seasonal reduction. No negotiation.</div>
-
-    <div class="notify-box">
-      <div>
-        <p class="notify-label">Shade Lots Close Permanently</p>
-        <p class="notify-copy">Leave your email — we'll notify you the moment a new lot opens.</p>
-      </div>
-      <form id="notify-form" class="notify-form" novalidate>
-        <input type="hidden" name="_subject" value="RAQI Shade Lot Signup">
-        <input type="hidden" name="brand" value="RAQI">
-        <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address">
-        <button type="submit" class="btn btn-dark">Notify Me</button>
-      </form>
-    </div>
-    <div class="notify-status" id="notify-status" role="status" aria-live="polite"></div>
-  </div>
-</section>
-
-<section id="contact" class="section-dark">
-  <div class="wrap reveal">
-    <div class="eyebrow"><span class="diamond"></span>Request an Appointment</div>
-    <h2 style="font-size:clamp(28px,4vw,44px);margin-top:22px;">Put your hand on it before you decide.</h2>
-    <p class="body-copy" style="max-width:560px;margin-top:18px;color:#cabbb2;">Submit your details below or reach us directly on WhatsApp. Every inquiry is answered within one business day.</p>
-
-    <div class="contact-grid">
-      <form data-quote-form novalidate>
-        <input type="hidden" name="_subject" value="New RAQI Inquiry">
-        <input type="hidden" name="brand" value="RAQI">
-        <div class="form-row">
-          <div class="field">
-            <label for="r-name">Name</label>
-            <input id="r-name" name="name" type="text" autocomplete="name" placeholder="Full name" required>
-          </div>
-          <div class="field">
-            <label for="r-email">Email</label>
-            <input id="r-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="field">
-            <label for="r-phone">Phone / WhatsApp</label>
-            <input id="r-phone" name="phone" type="tel" autocomplete="tel" placeholder="+92 300 0000000">
-          </div>
-          <div class="field">
-            <label for="r-code">Code of Interest</label>
-            <input id="r-code" name="code" type="text" placeholder="Safa, Noor, Waqar, Daim…">
-          </div>
-        </div>
-        <div class="field">
-          <label for="r-message">Message</label>
-          <textarea id="r-message" name="message" placeholder="Tell us what you're looking for."></textarea>
-        </div>
-        <button type="submit" class="btn btn-light">Request the Fabric Folder</button>
-        <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
-      </form>
-
-      <div>
-        <div class="contact-card">
-          <p class="label">WhatsApp — fastest response</p>
-          <a href="https://wa.me/923218230266" target="_blank" rel="noopener noreferrer">+92 321 8230266</a>
-          <a href="https://wa.me/923218230266?text=Hello%20RAQI%2C%20I%27d%20like%20to%20know%20more%20about%20your%20suiting%20fabric." target="_blank" rel="noopener noreferrer" class="btn btn-light" style="margin-top:14px;width:100%;justify-content:center;">Open WhatsApp</a>
-        </div>
-        <div class="contact-card">
-          <p class="label">Email</p>
-          <a href="mailto:info@enzolhr.com">info@enzolhr.com</a>
-        </div>
-        <div class="contact-card">
-          <p class="label">Address</p>
-          <address>ENZO Tower<br>Thokar Niaz Baig<br>Lahore, Pakistan</address>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="cta-band">
   <div class="wrap reveal">
     <div class="eyebrow" style="justify-content:center;"><span class="diamond"></span>Begin</div>
     <h2 style="margin-top:18px;">Put your hand on it before you decide.</h2>
     <p>Request the fabric folder, or an appointment at the showroom in Lahore.</p>
-    <a href="#contact" class="btn btn-light">Request the Fabric Folder</a>
+    <a href="contact.html" class="btn btn-light">Request the Fabric Folder</a>
   </div>
 </section>
 
@@ -655,7 +384,7 @@
           <span class="wordmark">Raqi</span>
           <span class="foot-arabic">رقي</span>
         </div>
-        <div class="foot-line">Worn above.</div>
+        <div class="foot-line">A finished-fabric brand by ENZO.</div>
       </div>
       <div class="foot-meta">
         ENZO Tower, Thokar Niaz Baig<br>
@@ -690,7 +419,6 @@
 
 <script src="assets/products-data.js"></script>
 <script src="assets/site.js"></script>
-<script src="assets/forms.js"></script>
 
 </body>
 </html>
