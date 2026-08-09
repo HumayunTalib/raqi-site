@@ -121,8 +121,6 @@
   }
   .two-col{display:grid;grid-template-columns:1fr;gap:40px;}
   @media(min-width:840px){ .two-col{grid-template-columns:0.8fr 1.2fr;gap:80px;} }
-  .body-copy{font-size:15.5px;line-height:1.8;color:var(--chocolate);}
-  .body-copy p + p{margin-top:16px;}
 
   /* ---------- Argument table ---------- */
   .argtable{width:100%;border-collapse:collapse;margin-top:8px;}
@@ -234,7 +232,22 @@
       <span class="wordmark">Raqi</span>
     </a>
     <div class="nav-links">
-      <a href="#codes">Shop</a>
+      <div class="has-mega">
+        <a href="shop.html">Shop</a>
+        <div class="mega-panel">
+          <div class="mega-col">
+            <div class="mega-label">Shop</div>
+            <a href="shop.html">All Fabrics</a>
+            <a href="shop.html">Shop by Color</a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-label">Collections</div>
+            <a href="shop.html?season=summer">Summer</a>
+            <a href="shop.html?season=winter">Winter</a>
+            <a href="shop.html?season=all-season">All-Season</a>
+          </div>
+        </div>
+      </div>
       <a href="#philosophy">About</a>
       <a href="#contact">Contact</a>
     </div>
@@ -256,7 +269,13 @@
     <button type="button" id="mobile-menu-close" class="mobile-menu-close" aria-label="Close menu">&times;</button>
   </div>
   <nav class="mobile-menu-links" aria-label="Mobile">
-    <a href="#codes">Shop</a>
+    <a href="shop.html">Shop</a>
+    <div class="mobile-menu-sub">
+      <a href="shop.html">Shop by Color</a>
+      <a href="shop.html?season=summer">Summer</a>
+      <a href="shop.html?season=winter">Winter</a>
+      <a href="shop.html?season=all-season">All-Season</a>
+    </div>
     <a href="#philosophy">About</a>
     <a href="#contact">Contact</a>
     <a href="https://wa.me/923218230266" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
@@ -270,8 +289,8 @@
       <h1 class="hero-word">Good Fabric.<br>Good Taste.<br>Good Value.</h1>
       <p class="hero-sub">Cloth that thinks with you.</p>
       <div class="hero-actions">
-        <a href="#codes" class="btn btn-dark">Shop Fabrics</a>
-        <a href="#codes" class="btn btn-ghost">Explore Collections</a>
+        <a href="shop.html" class="btn btn-dark">Shop Fabrics</a>
+        <a href="shop.html" class="btn btn-ghost">Explore Collections</a>
       </div>
       <div class="trust-bar">
         <span>Sourced from ENZO Mill</span>
@@ -349,7 +368,7 @@
 
 <section id="codes">
   <div class="wrap reveal">
-    <div class="eyebrow"><span class="diamond"></span>The Store</div>
+    <div class="eyebrow"><span class="diamond"></span>Featured Fabrics</div>
     <h2 style="font-size:clamp(28px,4vw,44px);margin-top:22px;">The Four Codes</h2>
     <p class="body-copy" style="max-width:560px;margin-top:18px;">Four foundational constructions, each drawn from ENZO's live shade range. The catalogue stays shallow on purpose — depth is expressed in shade, not in SKU count.</p>
   </div>
@@ -452,6 +471,7 @@
         </div>
       </div>
     </div>
+    <a href="shop.html" class="btn btn-ghost" style="margin-top:48px;">View All Fabrics</a>
   </div>
 </section>
 
@@ -461,7 +481,7 @@
     <h2 style="font-size:clamp(26px,3.6vw,36px);margin-top:22px;">Choose the shade first.</h2>
     <p class="body-copy" style="max-width:560px;margin-top:14px;">Every real shade currently available, across all four codes. Find a color, then see which fabric it belongs to.</p>
     <div class="color-wall" id="color-wall" aria-label="All available colors"></div>
-    <a href="#codes" class="store-ask" style="margin-top:24px;display:inline-block;">Browse all fabrics →</a>
+    <a href="shop.html" class="store-ask" style="margin-top:24px;display:inline-block;">Browse all fabrics →</a>
   </div>
 </section>
 
@@ -470,19 +490,19 @@
     <div class="eyebrow"><span class="diamond"></span>Shop by Purpose</div>
     <h2 style="font-size:clamp(26px,3.6vw,36px);margin-top:22px;color:var(--ash);">Start with how you'll wear it.</h2>
     <div class="purpose-grid">
-      <a href="#codes" class="purpose-card">
+      <a href="shop.html?character=standing" class="purpose-card">
         <span class="purpose-name">Crisp &amp; Warm-Weather</span>
         <span class="purpose-code">Safa</span>
       </a>
-      <a href="#codes" class="purpose-card">
+      <a href="shop.html?character=fluid" class="purpose-card">
         <span class="purpose-name">Fluid &amp; Evening</span>
         <span class="purpose-code">Noor</span>
       </a>
-      <a href="#codes" class="purpose-card">
+      <a href="shop.html?character=structural" class="purpose-card">
         <span class="purpose-name">Structured &amp; Formal</span>
         <span class="purpose-code">Waqar</span>
       </a>
-      <a href="#codes" class="purpose-card">
+      <a href="shop.html?character=neutral" class="purpose-card">
         <span class="purpose-name">Balanced &amp; Everyday</span>
         <span class="purpose-code">Daim</span>
       </a>

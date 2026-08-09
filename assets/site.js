@@ -25,8 +25,10 @@
 // Only swaps in an external product photo if it actually loads, so a
 // missing/not-yet-uploaded image never flashes a broken-image icon —
 // it falls back to the clean placeholder mark already in the DOM.
-(function () {
-  document.querySelectorAll('[data-src]').forEach(function (box) {
+// Callable again on a specific root after dynamically inserting new
+// [data-src] elements (e.g. shop.html re-rendering its filtered grid).
+function applyImageFallback(root) {
+  (root || document).querySelectorAll('[data-src]:not(.has-image)').forEach(function (box) {
     var src = box.getAttribute('data-src');
     if (!src) return;
     var probe = new Image();
@@ -40,7 +42,8 @@
     };
     probe.src = src;
   });
-})();
+}
+applyImageFallback();
 
 // ---------- Reusable: render every real color across all products into a container ----------
 // Used by the homepage "Shop by Color" teaser and (later) shop.html's color filter.
@@ -242,11 +245,11 @@ var RaqiCart = (function () {
     });
   }
 
-  document.querySelectorAll('.store-quickadd').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var code = btn.getAttribute('data-code');
-      RaqiCart.toggle(code);
-    });
+  // Event delegation (not a per-element listener) so quick-add buttons work
+  // even when the grid they live in is re-rendered later (shop.html filters).
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('.store-quickadd');
+    if (btn) RaqiCart.toggle(btn.getAttribute('data-code'));
   });
 
   if (itemsBox) {
@@ -277,6 +280,10 @@ var RaqiCart = (function () {
 
   RaqiCart.onChange(render);
   render();
+
+  // Exposed for pages that dynamically re-render product cards (shop.html
+  // filters) so quick-add button states stay in sync with the cart.
+  window.RaqiCartUI = { refresh: render };
 })();
 
 // Auto-render the color wall if this page has one (homepage teaser, shop.html filter, etc.)
