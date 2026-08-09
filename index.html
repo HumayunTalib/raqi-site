@@ -23,6 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Naskh+Arabic:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -50,107 +51,7 @@
 }
 </script>
 <style>
-  :root{
-    --chocolate:#2B1B17;
-    --ash:#F2F0EB;
-    --gold:#C5A059;
-    --chocolate-line:#4A372E;
-    --ash-line:#DEDACF;
-    --serif:'Fraunces', serif;
-    --sans:'IBM Plex Sans', -apple-system, sans-serif;
-    --mono:'IBM Plex Mono', monospace;
-    --arabic:'Noto Naskh Arabic', serif;
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    font-family:var(--sans);
-    background:var(--ash);
-    color:var(--chocolate);
-    font-weight:400;
-    line-height:1.7;
-    -webkit-font-smoothing:antialiased;
-  }
-  a{color:inherit;text-decoration:none;}
-  img,svg{display:block;max-width:100%;}
-
-  .measure{max-width:640px;}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
-
-  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.15;letter-spacing:-0.01em;}
-
-  .eyebrow{
-    font-family:var(--mono);
-    font-size:12px;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    color:var(--gold);
-    display:flex;
-    align-items:center;
-    gap:10px;
-  }
-  .eyebrow .diamond{width:6px;height:6px;}
-
-  .rule-gold{
-    width:48px;height:1px;background:var(--gold);
-    border:none;margin:20px 0 28px;
-  }
-
-  /* ---------- Nav ---------- */
-  .nav{
-    position:sticky;top:0;z-index:50;
-    background:rgba(242,240,235,0.92);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--ash-line);
-  }
-  .nav-inner{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:20px 32px;max-width:1180px;margin:0 auto;
-  }
-  .brandmark{display:flex;align-items:center;gap:10px;}
-  .brandmark .wordmark{
-    font-family:var(--serif);font-size:20px;letter-spacing:0.22em;
-    text-transform:uppercase;
-  }
-  .nav-links{display:flex;gap:36px;font-size:13px;letter-spacing:0.04em;}
-  .nav-links a{
-    padding-bottom:4px;border-bottom:1px solid transparent;
-    transition:border-color .25s ease, color .25s ease;
-  }
-  .nav-links a:hover, .nav-links a:focus-visible{border-color:var(--gold);}
-  .nav-links{display:none;}
-  @media(min-width:760px){ .nav-links{display:flex;} }
-
-  /* ---------- Diamond glyph ---------- */
-  .diamond{
-    width:8px;height:8px;background:var(--gold);
-    transform:rotate(45deg);flex:none;
-  }
-  .diamond.outline{background:none;border:1px solid var(--gold);}
-
-  /* ---------- Buttons ---------- */
-  .btn{
-    display:inline-flex;align-items:center;gap:10px;
-    font-family:var(--mono);font-size:13px;letter-spacing:0.06em;
-    padding:15px 26px;
-    border:1px solid transparent;
-    transition:border-color .25s ease, background .25s ease, color .25s ease;
-    white-space:nowrap;
-  }
-  .btn-dark{ background:var(--chocolate); color:var(--ash); }
-  .btn-dark:hover, .btn-dark:focus-visible{ border-color:var(--gold); }
-  .btn-light{ background:var(--ash); color:var(--chocolate); }
-  .btn-light:hover, .btn-light:focus-visible{ border-color:var(--gold); }
-  .btn-ghost{ background:transparent; border-color:var(--chocolate-line); color:var(--ash); }
-  .btn-ghost:hover, .btn-ghost:focus-visible{ border-color:var(--gold); }
-
-  /* ---------- Section rhythm ---------- */
-  section{padding:72px 0;}
-  @media(min-width:900px){ section{padding:120px 0;} }
-  .section-dark{ background:var(--chocolate); color:var(--ash); }
-  .section-dark .eyebrow{color:var(--gold);}
-
-  /* ---------- Hero ---------- */
+/* ---------- Hero ---------- */
   .hero{
     position:relative;overflow:hidden;
     background:var(--chocolate);color:var(--ash);
@@ -229,12 +130,7 @@
     text-transform:uppercase;color:#8a746b;margin-top:6px;
   }
 
-  /* ---------- Reveal on scroll ---------- */
-  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease;}
-  .reveal.in{opacity:1;transform:none;}
-  @media(prefers-reduced-motion: reduce){ .reveal{opacity:1;transform:none;transition:none;} }
-
-  /* ---------- Philosophy ---------- */
+/* ---------- Philosophy ---------- */
   .pull{
     font-family:var(--serif);font-weight:400;
     font-size:clamp(24px,3.4vw,36px);
@@ -264,80 +160,7 @@
   .argtable .fails{color:var(--chocolate);opacity:0.6;}
   .argtable .delivers{font-family:var(--mono);font-size:13px;letter-spacing:0.01em;}
 
-  /* ---------- Store ---------- */
-  .store-grid{
-    display:grid;grid-template-columns:1fr;gap:56px 32px;
-    margin-top:56px;
-  }
-  @media(min-width:640px){ .store-grid{grid-template-columns:1fr 1fr;} }
-  @media(min-width:1080px){ .store-grid{grid-template-columns:repeat(4,1fr);gap:48px 28px;} }
-  .store-card{
-    background:transparent;display:flex;flex-direction:column;
-    transition:transform .25s ease;
-  }
-  .store-card:hover{transform:translateY(-4px);}
-  .store-img{
-    position:relative;aspect-ratio:4/5;background:#241713;overflow:hidden;
-  }
-  .store-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
-  .store-card:hover .store-img img{transform:scale(1.045);}
-  .store-img-fallback{
-    position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
-    justify-content:center;gap:12px;
-  }
-  .store-img-fallback span:last-child{
-    font-family:var(--mono);font-size:11px;letter-spacing:0.12em;color:#8a746b;
-  }
-  .store-img.has-image .store-img-fallback{display:none;}
-  .store-quickadd{
-    position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;
-    background:rgba(43,27,23,0.55);backdrop-filter:blur(4px);
-    border:1px solid rgba(242,240,235,0.4);
-    display:flex;align-items:center;justify-content:center;color:var(--ash);
-    transition:background .2s ease, border-color .2s ease, color .2s ease;
-    cursor:pointer;padding:0;
-  }
-  .store-quickadd:hover{border-color:var(--gold);}
-  .store-quickadd.is-added{background:var(--gold);border-color:var(--gold);color:var(--chocolate);}
-  .store-body{padding-top:18px;}
-  .store-name{font-size:19px;margin:0;}
-  .store-sub{font-size:13px;color:#8a746b;margin-top:5px;}
-  .store-code{
-    font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;
-    color:#8a746b;margin-top:9px;
-  }
-  .store-swatches{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap;}
-  .swatch{
-    width:14px;height:14px;border-radius:50%;flex:none;
-    border:1px solid rgba(242,240,235,0.25);
-  }
-  .store-ask{
-    display:inline-block;margin-top:14px;font-family:var(--mono);font-size:11px;
-    letter-spacing:0.03em;color:var(--gold);border-bottom:1px solid transparent;
-  }
-  .store-ask:hover{border-color:var(--gold);}
-  .store-details{margin-top:16px;}
-  .store-details summary{
-    cursor:pointer;list-style:none;font-family:var(--mono);font-size:11px;letter-spacing:0.08em;
-    text-transform:uppercase;color:#cabbb2;display:flex;align-items:center;gap:8px;
-  }
-  .store-details summary::-webkit-details-marker{display:none;}
-  .store-details summary::before{content:'+';font-size:14px;color:var(--gold);line-height:1;}
-  .store-details[open] summary::before{content:'−';}
-  .store-details-body{margin-top:14px;}
-  .code-desc{font-size:14px;line-height:1.7;color:#cabbb2;max-width:320px;}
-  .code-specs-inline{display:flex;gap:18px;margin-top:14px;font-family:var(--mono);font-size:11px;color:#8a746b;}
-  .code-source{margin-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:0.03em;color:#8a746b;}
-  .in-stock{
-    display:flex;align-items:center;gap:7px;margin-top:12px;
-    font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:#8fbf8a;
-  }
-  .in-stock::before{content:'';width:6px;height:6px;border-radius:50%;background:#4caf50;flex:none;}
-  @media(prefers-reduced-motion: reduce){
-    .store-card, .store-card:hover, .store-img img, .store-card:hover .store-img img{transition:none;transform:none;}
-  }
-
-  /* ---------- Lineage ---------- */
+/* ---------- Lineage ---------- */
   .lineage-grid{display:grid;grid-template-columns:1fr;gap:40px;margin-top:44px;align-items:start;}
   @media(min-width:840px){ .lineage-grid{grid-template-columns:1fr 1fr;gap:80px;} }
   .lineage-copy{font-size:15.5px;line-height:1.8;color:#cabbb2;}
@@ -418,116 +241,45 @@
   }
   .contact-card a{display:inline-block;border-bottom:1px solid transparent;}
   .contact-card a:hover{border-color:var(--gold);}
-
-  /* ---------- Footer ---------- */
-  footer{background:var(--ash);padding:56px 0 40px;border-top:1px solid var(--ash-line);}
-  .foot-grid{
-    display:flex;flex-direction:column;gap:28px;
-  }
-  @media(min-width:700px){ .foot-grid{flex-direction:row;justify-content:space-between;align-items:flex-end;} }
-  .foot-mark{display:flex;align-items:center;gap:10px;}
-  .foot-mark .wordmark{font-family:var(--serif);font-size:18px;letter-spacing:0.2em;text-transform:uppercase;}
-  .foot-arabic{font-family:var(--arabic);color:var(--gold);font-size:18px;}
-  .foot-line{font-family:var(--mono);font-size:12px;letter-spacing:0.06em;opacity:0.6;margin-top:10px;}
-  .foot-meta{font-family:var(--mono);font-size:12px;opacity:0.55;line-height:2;}
-  .foot-note{
-    font-size:12px;opacity:0.45;margin-top:30px;font-family:var(--mono);
-    border-top:1px solid var(--ash-line);padding-top:20px;
-  }
-
-  :focus-visible{outline:1px solid var(--gold);outline-offset:3px;}
-
-  /* ---------- Floating WhatsApp ---------- */
-  .wa-float{
-    position:fixed;right:22px;bottom:22px;z-index:60;
-    width:56px;height:56px;border-radius:50%;
-    background:#25D366;display:flex;align-items:center;justify-content:center;
-    box-shadow:0 4px 18px rgba(0,0,0,0.35);
-    animation:wa-pulse 2.6s ease-in-out infinite;
-  }
-  .wa-float:hover{box-shadow:0 6px 22px rgba(0,0,0,0.45);}
-  @keyframes wa-pulse{
-    0%, 100%{ box-shadow:0 4px 18px rgba(0,0,0,0.35), 0 0 0 0 rgba(37,211,102,0.55); }
-    50%{ box-shadow:0 4px 18px rgba(0,0,0,0.35), 0 0 0 10px rgba(37,211,102,0); }
-  }
-  @media(prefers-reduced-motion: reduce){ .wa-float{animation:none;} }
-
-  /* ---------- Selection Cart ---------- */
-  .cart-bar{
-    position:fixed;right:22px;bottom:90px;z-index:59;
-    display:flex;align-items:center;gap:14px;
-    background:var(--chocolate);border:1px solid var(--gold);
-    padding:12px 16px;border-radius:999px;
-    transform:translateY(10px) scale(0.96);opacity:0;pointer-events:none;
-    transition:opacity .25s ease, transform .25s ease;
-    box-shadow:0 4px 18px rgba(0,0,0,0.3);
-  }
-  .cart-bar.visible{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
-  .cart-bar-count{
-    font-family:var(--mono);font-size:12px;letter-spacing:0.05em;color:var(--ash);white-space:nowrap;
-  }
-  .cart-bar .btn{padding:8px 16px;font-size:12px;cursor:pointer;}
-  @media(max-width:480px){ .cart-bar{right:14px;left:14px;bottom:88px;justify-content:space-between;} }
-  @media(prefers-reduced-motion: reduce){ .cart-bar{transition:none;} }
-
-  .cart-backdrop{
-    position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:65;
-    opacity:0;pointer-events:none;transition:opacity .3s ease;
-  }
-  .cart-backdrop.visible{opacity:1;pointer-events:auto;}
-  .cart-drawer{
-    position:fixed;top:0;right:0;height:100%;width:360px;max-width:88vw;
-    background:var(--chocolate);border-left:1px solid var(--chocolate-line);
-    z-index:70;transform:translateX(100%);transition:transform .3s ease;
-    display:flex;flex-direction:column;
-  }
-  .cart-drawer.open{transform:translateX(0);}
-  .cart-drawer-header{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:24px 24px 18px;border-bottom:1px solid var(--chocolate-line);
-    font-family:var(--mono);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);
-    flex:none;
-  }
-  .cart-drawer-close{
-    background:none;border:none;color:var(--ash);font-size:22px;line-height:1;
-    cursor:pointer;padding:0;width:24px;height:24px;
-  }
-  .cart-drawer-close:hover{color:var(--gold);}
-  .cart-drawer-items{flex:1;overflow-y:auto;padding:8px 24px;}
-  .cart-item{display:flex;align-items:center;gap:14px;padding:16px 0;border-bottom:1px solid var(--chocolate-line);}
-  .cart-item:last-child{border-bottom:none;}
-  .cart-item-thumb{width:52px;height:65px;background:#241713;flex:none;overflow:hidden;}
-  .cart-item-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
-  .cart-item-info{flex:1;min-width:0;}
-  .cart-item-name{font-family:var(--serif);font-size:16px;}
-  .cart-item-sub{font-family:var(--mono);font-size:10px;color:#8a746b;margin-top:3px;}
-  .cart-item-remove{
-    background:none;border:none;color:#8a746b;font-size:19px;line-height:1;
-    cursor:pointer;padding:6px;flex:none;
-  }
-  .cart-item-remove:hover{color:var(--gold);}
-  .cart-drawer-empty{font-family:var(--mono);font-size:12px;color:#8a746b;text-align:center;padding:48px 0;}
-  .cart-drawer-footer{padding:20px 24px 24px;border-top:1px solid var(--chocolate-line);flex:none;}
-  @media(prefers-reduced-motion: reduce){ .cart-drawer, .cart-backdrop{transition:none;} }
 </style>
 </head>
 <body>
 
-<nav class="nav">
+<nav class="nav" aria-label="Primary">
   <div class="nav-inner">
-    <div class="brandmark">
+    <a href="index.html" class="brandmark" aria-label="RAQI — home">
       <span class="diamond"></span>
       <span class="wordmark">Raqi</span>
-    </div>
+    </a>
     <div class="nav-links">
-      <a href="#philosophy">Philosophy</a>
-      <a href="#codes">The Four Codes</a>
-      <a href="#access">Access</a>
+      <a href="#codes">Shop</a>
+      <a href="#philosophy">About</a>
       <a href="#contact">Contact</a>
     </div>
-    <a href="#contact" class="btn btn-dark" style="padding:11px 18px;">Request Appointment</a>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <a href="#contact" class="btn btn-dark" style="padding:11px 18px;">Request Appointment</a>
+      <button type="button" id="nav-toggle" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </button>
+    </div>
   </div>
 </nav>
+
+<div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu-top">
+    <span class="brandmark">
+      <span class="diamond"></span>
+      <span class="wordmark">Raqi</span>
+    </span>
+    <button type="button" id="mobile-menu-close" class="mobile-menu-close" aria-label="Close menu">&times;</button>
+  </div>
+  <nav class="mobile-menu-links" aria-label="Mobile">
+    <a href="#codes">Shop</a>
+    <a href="#philosophy">About</a>
+    <a href="#contact">Contact</a>
+    <a href="https://wa.me/923218230266" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+  </nav>
+</div>
 
 <header class="hero">
   <div class="wrap hero-grid">
@@ -898,243 +650,9 @@
   <svg viewBox="0 0 24 24" width="26" height="26" fill="#F2F0EB" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .105 5.36.102 11.943c0 2.105.548 4.16 1.591 5.976L0 24l6.223-1.632a11.9 11.9 0 0 0 5.822 1.484h.005c6.58 0 11.938-5.359 11.941-11.943a11.87 11.87 0 0 0-3.47-8.46zM12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.981.999-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.234c.002-5.45 4.437-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.83 9.83 0 0 1 2.893 6.994c-.003 5.45-4.437 9.859-9.886 9.859z"/></svg>
 </a>
 
-<script>
-  // Scroll reveal
-  const els = document.querySelectorAll('.reveal');
-  if('IntersectionObserver' in window){
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, {threshold:0.12});
-    els.forEach(el=>io.observe(el));
-  } else {
-    els.forEach(el=>el.classList.add('in'));
-  }
-</script>
-
-<script>
-  // Store card images — only swap in the real ENZO asset if it actually loads,
-  // so a missing photo never flashes a broken-image icon; falls back to the code mark.
-  document.querySelectorAll('.store-img[data-src]').forEach(function (box) {
-    var src = box.getAttribute('data-src');
-    var probe = new Image();
-    probe.onload = function () {
-      var img = document.createElement('img');
-      img.src = src;
-      img.alt = box.getAttribute('data-alt') || '';
-      img.loading = 'lazy';
-      box.insertBefore(img, box.firstChild);
-      box.classList.add('has-image');
-    };
-    probe.src = src;
-  });
-
-  // Selection cart — pick codes, review them in a slide-out drawer, then send the whole list to WhatsApp.
-  (function () {
-    var PHONE = '923218230266';
-    var PRODUCTS = {
-      Safa:  { sub: 'Spring / Summer',    img: 'https://enzolhr.com/assets/products/bb-04-summer.webp' },
-      Noor:  { sub: 'Summer / Mid-Season', img: 'https://enzolhr.com/assets/products/ns-01.webp' },
-      Waqar: { sub: 'Autumn / Winter',    img: 'https://enzolhr.com/assets/products/ww-07.webp' },
-      Daim:  { sub: 'All-Season',         img: 'https://enzolhr.com/assets/products/bb-04-winter.webp' }
-    };
-    var ICON_PLUS  = '<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>';
-    var ICON_CHECK = '<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-
-    var selection = [];
-    var cartBar    = document.getElementById('cart-bar');
-    var cartCount  = document.getElementById('cart-count');
-    var cartView   = document.getElementById('cart-view');
-    var drawer     = document.getElementById('cart-drawer');
-    var backdrop   = document.getElementById('cart-backdrop');
-    var closeBtn   = document.getElementById('cart-close');
-    var itemsBox   = document.getElementById('cart-items');
-    var sendBtn    = document.getElementById('cart-drawer-send');
-    var codeField  = document.getElementById('r-code');
-
-    function setAdded(code, added) {
-      var btn = document.querySelector('.store-quickadd[data-code="' + code + '"]');
-      if (!btn) return;
-      btn.innerHTML = added ? ICON_CHECK : ICON_PLUS;
-      btn.classList.toggle('is-added', added);
-      btn.setAttribute('aria-label', (added ? 'Remove ' : 'Add ') + code + (added ? ' from selection' : ' to selection'));
-    }
-
-    function renderItems() {
-      if (!selection.length) {
-        itemsBox.innerHTML = '<p class="cart-drawer-empty">No codes selected yet.</p>';
-        return;
-      }
-      itemsBox.innerHTML = selection.map(function (code) {
-        var p = PRODUCTS[code] || {};
-        return '<div class="cart-item">' +
-          '<div class="cart-item-thumb"><img src="' + (p.img || '') + '" alt="" loading="lazy" onerror="this.style.display=\'none\'"></div>' +
-          '<div class="cart-item-info"><div class="cart-item-name">' + code + '</div><div class="cart-item-sub">' + (p.sub || '') + '</div></div>' +
-          '<button type="button" class="cart-item-remove" data-code="' + code + '" aria-label="Remove ' + code + ' from selection">&times;</button>' +
-        '</div>';
-      }).join('');
-    }
-
-    function update() {
-      var n = selection.length;
-      cartCount.textContent = n;
-      cartBar.classList.toggle('visible', n > 0);
-      if (codeField) codeField.value = selection.join(', ');
-      renderItems();
-      if (n > 0) {
-        var msg = "Hello RAQI, I'd like more details on: " + selection.join(', ') + '.';
-        sendBtn.href = 'https://wa.me/' + PHONE + '?text=' + encodeURIComponent(msg);
-      }
-    }
-
-    function toggle(code) {
-      var idx = selection.indexOf(code);
-      if (idx === -1) { selection.push(code); setAdded(code, true); }
-      else { selection.splice(idx, 1); setAdded(code, false); }
-      update();
-    }
-
-    document.querySelectorAll('.store-quickadd').forEach(function (btn) {
-      btn.addEventListener('click', function () { toggle(btn.getAttribute('data-code')); });
-    });
-
-    itemsBox.addEventListener('click', function (e) {
-      var btn = e.target.closest('.cart-item-remove');
-      if (btn) toggle(btn.getAttribute('data-code'));
-    });
-
-    function openDrawer() {
-      drawer.classList.add('open');
-      backdrop.classList.add('visible');
-      drawer.setAttribute('aria-hidden', 'false');
-    }
-    function closeDrawer() {
-      drawer.classList.remove('open');
-      backdrop.classList.remove('visible');
-      drawer.setAttribute('aria-hidden', 'true');
-    }
-
-    cartView.addEventListener('click', openDrawer);
-    closeBtn.addEventListener('click', closeDrawer);
-    backdrop.addEventListener('click', closeDrawer);
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeDrawer();
-    });
-
-    update();
-  })();
-</script>
-
-<script>
-  // Quote form — Formspree submission (same form used by enzolhr.com), WhatsApp fallback on failure
-  (function () {
-    'use strict';
-    var FORMSPREE_ID = 'xykardnj';
-    var PHONE = '923218230266';
-    var form = document.querySelector('form[data-quote-form]');
-    if (!form) return;
-    var status = document.getElementById('form-status');
-
-    function setStatus(msg, ok) {
-      if (!status) return;
-      status.textContent = msg;
-      status.style.color = ok ? '#C5A059' : '#e08a74';
-    }
-
-    function waLink(data) {
-      var lines = [
-        'Hello RAQI, I would like to request the fabric folder.',
-        data.name    ? 'Name: ' + data.name : '',
-        data.email   ? 'Email: ' + data.email : '',
-        data.phone   ? 'Phone: ' + data.phone : '',
-        data.code    ? 'Code of interest: ' + data.code : '',
-        data.message ? 'Message: ' + data.message : ''
-      ].filter(Boolean);
-      return 'https://wa.me/' + PHONE + '?text=' + encodeURIComponent(lines.join('\n'));
-    }
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var fd = new FormData(form);
-      var data = {};
-      fd.forEach(function (v, k) { data[k] = v.toString().trim(); });
-
-      if (!data.name || !data.email) {
-        setStatus('Please provide at least your name and email.', false);
-        return;
-      }
-
-      var btn = form.querySelector('[type="submit"]');
-      if (btn) btn.disabled = true;
-      setStatus('Sending…', true);
-
-      fetch('https://formspree.io/f/' + FORMSPREE_ID, {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: fd
-      }).then(function (res) {
-        if (res.ok) {
-          form.reset();
-          setStatus('Thank you — we will respond within 1 business day.', true);
-        } else {
-          setStatus('Something went wrong. Opening WhatsApp instead…', false);
-          window.open(waLink(data), '_blank', 'noopener');
-        }
-      }).catch(function () {
-        setStatus('Network error. Opening WhatsApp instead…', false);
-        window.open(waLink(data), '_blank', 'noopener');
-      }).finally(function () {
-        if (btn) btn.disabled = false;
-      });
-    });
-  })();
-</script>
-
-<script>
-  // Shade-lot notify signup — email only, same Formspree account, distinct subject.
-  (function () {
-    'use strict';
-    var FORMSPREE_ID = 'xykardnj';
-    var form = document.getElementById('notify-form');
-    if (!form) return;
-    var status = document.getElementById('notify-status');
-
-    function setStatus(msg, ok) {
-      if (!status) return;
-      status.textContent = msg;
-      status.style.color = ok ? '#8fbf8a' : '#c0392b';
-    }
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var fd = new FormData(form);
-      var email = (fd.get('email') || '').toString().trim();
-      if (!email) { setStatus('Please enter your email.', false); return; }
-
-      var btn = form.querySelector('[type="submit"]');
-      if (btn) btn.disabled = true;
-      setStatus('Sending…', true);
-
-      fetch('https://formspree.io/f/' + FORMSPREE_ID, {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: fd
-      }).then(function (res) {
-        if (res.ok) {
-          form.reset();
-          setStatus("You're on the list — we'll email you when a new lot opens.", true);
-        } else {
-          setStatus('Something went wrong. Please try again or message us on WhatsApp.', false);
-        }
-      }).catch(function () {
-        setStatus('Network error. Please try again or message us on WhatsApp.', false);
-      }).finally(function () {
-        if (btn) btn.disabled = false;
-      });
-    });
-  })();
-</script>
+<script src="assets/products-data.js"></script>
+<script src="assets/site.js"></script>
+<script src="assets/forms.js"></script>
 
 </body>
 </html>
