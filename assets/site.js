@@ -42,6 +42,22 @@
   });
 })();
 
+// ---------- Reusable: render every real color across all products into a container ----------
+// Used by the homepage "Shop by Color" teaser and (later) shop.html's color filter.
+// Renders real swatches only — never invents a color that isn't in RAQI_PRODUCTS.
+function renderColorWall(containerId, onClickHref) {
+  var box = document.getElementById(containerId);
+  if (!box || typeof RAQI_PRODUCTS === 'undefined') return;
+  var html = '';
+  RAQI_PRODUCTS.forEach(function (p) {
+    p.colors.forEach(function (c) {
+      var href = typeof onClickHref === 'function' ? onClickHref(p, c) : '#codes';
+      html += '<a class="swatch-tile" href="' + href + '" title="' + c.name + ' — ' + p.code + '" style="background:' + c.hex + '"></a>';
+    });
+  });
+  box.innerHTML = html;
+}
+
 // ---------- Nav: mega-menu (desktop hover/focus) + mobile full-screen menu ----------
 (function () {
   var toggle = document.getElementById('nav-toggle');
@@ -262,3 +278,6 @@ var RaqiCart = (function () {
   RaqiCart.onChange(render);
   render();
 })();
+
+// Auto-render the color wall if this page has one (homepage teaser, shop.html filter, etc.)
+renderColorWall('color-wall');

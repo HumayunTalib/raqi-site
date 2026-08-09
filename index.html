@@ -54,68 +54,50 @@
 /* ---------- Hero ---------- */
   .hero{
     position:relative;overflow:hidden;
-    background:var(--chocolate);color:var(--ash);
-    padding-top:110px;padding-bottom:96px;
+    background:var(--ash);color:var(--chocolate);
+    padding-top:110px;padding-bottom:80px;
+    border-bottom:1px solid var(--ash-line);
   }
-  @media(min-width:900px){ .hero{padding-top:150px;padding-bottom:140px;} }
+  @media(min-width:900px){ .hero{padding-top:150px;padding-bottom:110px;} }
   .hero-grid{
-    display:grid;grid-template-columns:1fr;gap:56px;align-items:center;
+    display:grid;grid-template-columns:1fr;gap:48px;align-items:center;
   }
-  @media(min-width:900px){ .hero-grid{grid-template-columns:1.1fr 0.9fr;gap:40px;} }
+  @media(min-width:900px){ .hero-grid{grid-template-columns:1fr 1fr;gap:56px;} }
 
+  .hero-tagline{
+    font-family:var(--mono);font-size:13px;letter-spacing:0.14em;
+    text-transform:uppercase;color:var(--gold);
+  }
   .hero-word{
     font-family:var(--serif);
-    font-weight:500;
-    font-size:clamp(52px,11vw,108px);
-    letter-spacing:0.06em;
-    text-transform:uppercase;
-    line-height:0.95;
-  }
-  .hero-arabic{
-    font-family:var(--arabic);
-    font-size:28px;color:var(--gold);margin-top:14px;
-  }
-  .hero-tagline{
-    font-family:var(--mono);font-size:14px;letter-spacing:0.12em;
-    text-transform:uppercase;color:var(--gold);margin-top:22px;
+    font-weight:400;
+    font-size:clamp(38px,6vw,60px);
+    letter-spacing:-0.01em;
+    line-height:1.08;
+    margin-top:18px;
   }
   .hero-sub{
-    font-family:var(--serif);font-size:clamp(20px,2.6vw,26px);
-    font-weight:400;line-height:1.4;margin-top:26px;max-width:520px;
-    color:var(--ash);
+    font-family:var(--sans);font-size:16px;
+    font-weight:400;line-height:1.6;margin-top:20px;max-width:420px;
+    color:#6b5c52;
   }
-  .hero-body{
-    font-size:15px;line-height:1.75;color:#cabbb2;margin-top:20px;max-width:460px;
-  }
-  .hero-actions{display:flex;gap:16px;margin-top:40px;flex-wrap:wrap;}
+  .hero-actions{display:flex;gap:16px;margin-top:36px;flex-wrap:wrap;}
+  .hero-actions .btn-ghost{border-color:var(--chocolate-line);color:var(--chocolate);}
   .trust-bar{
-    display:flex;flex-wrap:wrap;gap:14px 24px;margin-top:32px;
-    font-family:var(--mono);font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:#cabbb2;
+    display:flex;flex-wrap:wrap;gap:14px 24px;margin-top:36px;
+    font-family:var(--mono);font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:#8a746b;
   }
   .trust-bar span{position:relative;padding-left:16px;}
   .trust-bar span::before{
     content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);
     width:6px;height:6px;background:var(--gold);border-radius:50%;
   }
-
-  /* Drape SVG */
-  .drape-wrap{position:relative;height:420px;}
-  .drape-svg{width:100%;height:100%;}
-  .drape-line{
-    fill:none;stroke:var(--gold);stroke-width:1;
-    stroke-dasharray:600;stroke-dashoffset:600;
-    opacity:0.9;
-    animation:settle 1.8s cubic-bezier(.2,.7,.2,1) forwards;
-  }
-  @keyframes settle{ to{ stroke-dashoffset:0; } }
-  @media(prefers-reduced-motion: reduce){
-    .drape-line{ animation:none; stroke-dashoffset:0; }
-  }
+  .hero-visual .store-img{aspect-ratio:5/6;border-radius:2px;}
 
   /* ---------- Trust Strip ---------- */
   .trust-strip{
-    background:var(--chocolate);border-top:1px solid var(--chocolate-line);
-    border-bottom:1px solid var(--chocolate-line);
+    background:var(--ash);border-top:1px solid var(--ash-line);
+    border-bottom:1px solid var(--ash-line);
   }
   .trust-strip-grid{
     display:grid;grid-template-columns:repeat(2,1fr);gap:24px;
@@ -123,7 +105,7 @@
   }
   @media(min-width:640px){ .trust-strip-grid{grid-template-columns:repeat(4,1fr);} }
   .trust-num{
-    display:block;font-family:var(--serif);font-size:22px;color:var(--ash);
+    display:block;font-family:var(--serif);font-size:22px;color:var(--chocolate);
   }
   .trust-label{
     display:block;font-family:var(--mono);font-size:10px;letter-spacing:0.08em;
@@ -284,14 +266,12 @@
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
-      <h1 class="hero-word">Raqi</h1>
-      <div class="hero-arabic">رقي</div>
       <div class="hero-tagline">Worn Above</div>
+      <h1 class="hero-word">Good Fabric.<br>Good Taste.<br>Good Value.</h1>
       <p class="hero-sub">Cloth that thinks with you.</p>
-      <p class="hero-body">There is a specific hour in a working day when a man's clothing stops being an asset and becomes a liability. The cut was never the problem. The cloth was. RAQI exists to remove that hour.</p>
       <div class="hero-actions">
-        <a href="https://wa.me/923218230266?text=Hello%20RAQI%2C%20I%27d%20like%20to%20know%20more%20about%20your%20suiting%20fabric." target="_blank" rel="noopener noreferrer" class="btn btn-light">Chat on WhatsApp</a>
-        <a href="#codes" class="btn btn-ghost">View the Four Codes</a>
+        <a href="#codes" class="btn btn-dark">Shop Fabrics</a>
+        <a href="#codes" class="btn btn-ghost">Explore Collections</a>
       </div>
       <div class="trust-bar">
         <span>Sourced from ENZO Mill</span>
@@ -299,15 +279,10 @@
         <span>By Appointment — Lahore</span>
       </div>
     </div>
-    <div class="drape-wrap" aria-hidden="true">
-      <svg class="drape-svg" viewBox="0 0 320 420" preserveAspectRatio="xMidYMid meet">
-        <path class="drape-line" style="animation-delay:0s"   d="M40,0 C20,90 70,150 45,230 C25,300 65,350 50,420"/>
-        <path class="drape-line" style="animation-delay:.08s" d="M90,0 C70,110 120,160 95,250 C75,320 110,360 100,420"/>
-        <path class="drape-line" style="animation-delay:.16s" d="M140,0 C160,100 110,170 145,240 C165,300 130,360 140,420"/>
-        <path class="drape-line" style="animation-delay:.24s" d="M190,0 C210,90 165,160 195,230 C215,300 175,350 190,420"/>
-        <path class="drape-line" style="animation-delay:.32s" d="M240,0 C220,110 270,160 245,250 C225,320 260,360 250,420"/>
-        <path class="drape-line" style="animation-delay:.4s"  d="M290,0 C270,100 300,170 275,240 C260,300 295,360 285,420"/>
-      </svg>
+    <div class="hero-visual">
+      <div class="store-img" data-src="https://enzolhr.com/assets/products/ww-07.webp" data-alt="RAQI suiting fabric, close texture">
+        <div class="store-img-fallback"><span class="diamond outline"></span><span>RAQI</span></div>
+      </div>
     </div>
   </div>
 </header>
@@ -476,6 +451,41 @@
           </details>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="shop-by-color">
+  <div class="wrap reveal">
+    <div class="eyebrow"><span class="diamond"></span>Shop by Color</div>
+    <h2 style="font-size:clamp(26px,3.6vw,36px);margin-top:22px;">Choose the shade first.</h2>
+    <p class="body-copy" style="max-width:560px;margin-top:14px;">Every real shade currently available, across all four codes. Find a color, then see which fabric it belongs to.</p>
+    <div class="color-wall" id="color-wall" aria-label="All available colors"></div>
+    <a href="#codes" class="store-ask" style="margin-top:24px;display:inline-block;">Browse all fabrics →</a>
+  </div>
+</section>
+
+<section id="shop-by-purpose" class="section-dark">
+  <div class="wrap reveal">
+    <div class="eyebrow"><span class="diamond"></span>Shop by Purpose</div>
+    <h2 style="font-size:clamp(26px,3.6vw,36px);margin-top:22px;color:var(--ash);">Start with how you'll wear it.</h2>
+    <div class="purpose-grid">
+      <a href="#codes" class="purpose-card">
+        <span class="purpose-name">Crisp &amp; Warm-Weather</span>
+        <span class="purpose-code">Safa</span>
+      </a>
+      <a href="#codes" class="purpose-card">
+        <span class="purpose-name">Fluid &amp; Evening</span>
+        <span class="purpose-code">Noor</span>
+      </a>
+      <a href="#codes" class="purpose-card">
+        <span class="purpose-name">Structured &amp; Formal</span>
+        <span class="purpose-code">Waqar</span>
+      </a>
+      <a href="#codes" class="purpose-card">
+        <span class="purpose-name">Balanced &amp; Everyday</span>
+        <span class="purpose-code">Daim</span>
+      </a>
     </div>
   </div>
 </section>
